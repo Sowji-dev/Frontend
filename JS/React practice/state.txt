@@ -1,0 +1,601 @@
+1.import './App.css'
+import React from 'react';
+function App() {
+  var [s,setS]= React.useState('hello Sowjanya')
+  return (
+    <div>
+     <h2>{s}</h2>
+      </div>
+  );
+}
+export default App;
+
+
+
+2.import './App.css'
+import React from 'react';
+function App() {
+  var [x,setx]= React.useState(22)
+  var [y,sety]= React.useState(27)
+  return (
+    <div>
+     <h2>{x+y}</h2>
+      </div>
+  );
+}
+export default App;
+
+3.import './App.css'
+import React from 'react';
+function App() {
+  var [s1,setS1]= React.useState('hello Sowjanya...')
+  var [s2,setS2]= React.useState('Good Morning')
+  return (
+    <div>
+     <h2>{s1+s2}</h2>
+      </div>
+  );
+}
+export default App;
+
+
+4.import './App.css'
+import React from 'react';
+function App() {
+  var [s1,setS1]= React.useState('hello Sowjanya...')
+  var [s2,setS2]= React.useState('Good Morning')
+  return (
+    <div>
+     <h2>{10>52 ? s1 : s2}</h2>
+      </div>
+  );
+}
+export default App;
+
+
+
+5.Print array of numbers in React componen
+function App() {
+  var [ar,setAr]= React.useState([33,78,11,90,36])
+  
+  return (
+    <div>
+      <ul>
+        {
+          ar.map(e=><li>{e}</li>)
+        }
+      </ul>
+    </div>
+  );
+}
+
+6.Print first two character of array values in React component
+function App() {
+  var [ar,setAr]= React.useState(['hello', 'good', 'mrning', 'bye'])
+  
+  return (
+    <div>
+      <ul>
+        {
+          ar.map(e=><li>{e}: {e.substring(0,2)} </li>)
+        }
+      </ul>
+    </div>
+  );
+}
+
+7.Print square root of 14 in React component
+function App() {
+  var [n,setN]= React.useState(prompt())
+  return (
+    <div>
+       {n} sqrt is :{Math.sqrt(n)}
+    </div>
+  );
+}
+export default App;
+
+8.Print integer part of the number 134.42 in React component
+function App() {
+  var [n,setN]= React.useState(prompt())
+  return (
+    <div>
+       {n} integer part is :{parseInt(n)}
+    </div>
+  );
+}
+
+9.10
+function App() {
+  //var [n,setN]= React.useState(prompt())
+  var [s1,setS1]= React.useState('hello Sowjanya...')
+  return (
+    <div>
+       {s1.toUpperCase()}
+       {s1.length}
+        {s1.split('').reverse().join()}
+    </div>
+  );
+}
+
+Evaluate addition of two variable values in React component
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [x,setx]= useState(+prompt())
+  var [y,sety]= useState(+prompt())
+  return (
+    <div>
+       <div>Addition is {x+y}</div>
+       <div>Greatest is {x>y ? x : y}</div>
+       <div>{x} is {x%2==0? 'even' : 'odd'}</div>
+       <div>{x} is {x>0? 'pos' : 'neg'}</div>
+        <div></div>
+    </div>
+  );
+}
+export default App;
+
+
+Display greatest variable value of three in React component
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [x,setx]= useState(+prompt())
+  var [y,sety]= useState(+prompt())
+  var [z,setz]= useState(+prompt())
+  return (
+    <div>
+       {x>y ? (x>z ? x : z) : (y>z ? y :z)}
+    </div>
+  );
+}
+export default App;
+
+
+Display different elements conditionally React component
+function App() {
+  var [x,setx]= useState(+prompt())
+  return (
+    <div>
+       {x%2==0 ? <b>even</b> : <i>odd</i>}
+    </div>
+  );
+}
+
+
+Display different images conditionally React component
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [x,setx]= useState(+prompt())
+  var [url1,setUrl1]= useState('https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492__340.jpg')
+  var [url2,setUrl2]= useState('https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074__340.jpg')
+  return (
+    <div>
+       {x%2==0 ? <img src={url1}/> : <img src={url2}/> }
+    </div>
+  );
+}
+export default App;
+
+
+function App() {
+  var [x,setx]= useState(+prompt())
+  var [url1,setUrl1]= useState('https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492__340.jpg')
+  var [url2,setUrl2]= useState('https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074__340.jpg')
+  return (
+    <div>
+       <img src={x%2==0 ? url1 : url2}/>
+    </div>
+  );
+}
+
+
+Print array strings ol and ul in React componen
+function App() {
+  var [ar,setAr]= React.useState([7, 41, 25, 8, 9, 6, 3])
+  return (
+    <div>
+        {
+          ar.map(e=><h1>{e}</h1>)
+        }
+        <div>squared array values:
+          {
+             ar.map(e=><h1>{e*e}</h1>)
+          }
+        </div>
+    </div>
+  );
+}
+
+Print merged array values in sorted order of given two arrays
+in React component
+function App() {
+  var [ar,setAr]= React.useState([7, 41, 25, -8, 9, 6, 3])
+  var [ar2,setAr2]= React.useState([55,89,12,-3,41])
+  return (
+    <div>
+        <div>
+          {
+             ar.concat(ar2).sort((a,b)=>{
+              return a>b ? 1 : -1
+             }).map(e=><h3>{e}</h3>)
+          }
+        </div>
+    </div>
+  );
+}
+
+Print only the even numbers of array of numbers in list items
+in React component
+function App() {
+  var [ar,setAr]= React.useState([7, 41, 25, -8, 9, 6, 3])
+  var [ar2,setAr2]= React.useState([55,89,12,-3,41])
+  return (
+    <div>
+        <div>
+          {
+             ar.concat(ar2).sort((a,b)=>{
+              return a>b ? 1 : -1
+             }).map(e=>
+                <h3>{e} : {e%2==0 ? 'even' : 'odd'}</h3>
+              )
+          }
+        </div>
+    </div>
+  );
+}
+
+
+Print even numbers in italics and odd numbers in bold in list in
+React component
+function App() {
+  var [ar,setAr]= React.useState([7, 41, 25, -8, 9, 6, 3])
+  var [ar2,setAr2]= React.useState([55,89,12,-3,41])
+  return (
+    <div>
+        <div>
+          {
+             ar.concat(ar2).sort((a,b)=>{
+              return a>b ? 1 : -1
+             }).map(e=><div> 
+                 { e%2==0 ? <b>{e}</b> : <i>{e}</i>}
+                </div>)
+          }
+        </div>
+    </div>
+  );
+}
+
+Print the sum of all numbers of array in React component
+function App() {
+  var [ar,setAr]= React.useState([7, 41, 25, -8, 9, 6, 3])
+  var [ar2,setAr2]= React.useState([55,89,12,-3,41])
+  return (
+    <div>
+        <div>
+          {
+             ar.reduce((a,b)=>{
+              return a+b
+             },0)      
+          }
+        </div>
+    </div>
+  );
+}
+
+Print array strings sorted order in list items in React component
+function App() {
+  var [ar,setAr]= React.useState(['dog', 'cat', 'pig', 'mouse', 'tiger', 'lion'])
+  return (
+    <div>
+        <div>
+          {
+             ar.sort().map(e=><li>{e} : {e.length}</li>)     
+          }
+        </div>
+    </div>
+  );
+}
+
+
+
+
+Print a table for the given array of students in React component
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [ar,setAr]= React.useState([
+    {
+      firstname:"Sowji",
+      lastname:"Ganta",
+      age:25,
+      gender:"male"
+    },
+    {
+      firstname:"RAmya",
+      lastname:"sri",
+      age:25,
+      gender:'female'
+    },
+    {
+      firstname:"mani",
+      lastname:"sai",
+      age:39,
+      gender:'male'
+    },
+    {
+      firstname:"Ravi",
+      lastname:"varma",
+      age:35,
+      gender:'male'
+    },
+    {
+      firstname:"Naya",
+      lastname:"papa",
+      age:5,
+      gender:'female'
+    }
+])
+var maleimage="https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg";
+var femaleimage="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png";
+var ob={}
+function addEmp(e){
+  e.preventDefault()
+  ob.firstname=document.empForm.fname.value;
+  ob.lastname=document.empForm.lname.value;
+  ob.age=document.empForm.age.value;
+  ob.gender=document.empForm.gen.value;
+  console.log(ob)
+  setAr([...ar,ob])
+  console.log(ar)
+  document.empForm.reset()
+}
+
+  return (
+    <div >
+        <form name="empForm">
+            <input type="text" name="fname" placeholder="Enter First Name" /><br/>
+            <input type="text" name="lname" placeholder="Enter Last Name" /><br/>
+            <input type="text" name="age" placeholder="Enter Age" /><br/>
+            <input type="radio" name="gen" id='male' value="male" />Male
+            <input type="radio" name="gen" id='female' value="female" />Female
+            <input type="radio" name="gen" id='others' value="others" />Others<br/>
+            <button onClick={addEmp}>Add Emp</button>
+          
+        </form>
+        <table border='2'>
+          <tbody>
+          {
+              ar.map((a,i)=>{
+                return <tr key={i}>
+                  <td>{ a.firstname}</td>
+                  <td>{ a.lastname}</td>
+                  <td>{ a.age}</td>
+                  <td><img src={a.gender=='male' ? maleimage : femaleimage} style={{width:'50px'}}/></td>
+                </tr>
+                
+                })
+          }
+          </tbody>
+        </table>
+    </div>
+  );
+}
+export default App;
+
+
+Print the object properties in React component
+function App() {
+  var [ob,setOb]= useState({
+    firstname: "LAkshmi",
+    lastname: "Sowjanya",
+    age: 20,
+    gender:'female'
+})
+  return (
+    <div >
+       Fisrtname:{ob.firstname}<br/>
+      Lastname : {ob.lastname}<br/>
+      Age: {ob.age}<br/>
+      gender: {ob.gender}
+    </div>
+  );
+}
+
+
+Print each object in a seperate list for a given array of student
+objects in React component
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [ar,setAr]= useState([
+    {
+      firstname:"Sowji",
+      lastname:"Ganta",
+      age:25,
+      gender:"male"
+    },
+    {
+      firstname:"RAmya",
+      lastname:"sri",
+      age:25,
+      gender:'female'
+    },
+    {
+      firstname:"mani",
+      lastname:"sai",
+      age:39,
+      gender:'male'
+    },
+    {
+      firstname:"Ravi",
+      lastname:"varma",
+      age:35,
+      gender:'male'
+    },
+    {
+      firstname:"Naya",
+      lastname:"papa",
+      age:5,
+      gender:'female'
+    }
+])
+  return (
+    <div >
+      {
+        ar.map(ob=>
+          <ul>
+              <li>Fisrtname:{ob.firstname}</li>
+              <li>Lastname : {ob.lastname}</li>
+              <li> {ob.age}</li>
+              <li>{ob.gender}</li>
+          </ul>
+        )
+      }
+    </div>
+  );
+}
+export default App;
+
+
+
+
+
+
+to do list
+function App() {
+  var [ar,setAr]= useState(['dog', 'cat', 'pig', 'mouse', 'tiger', 'lion'])
+  //console.log(ar)
+  function add(){
+    var s=document.getElementById('myval').value;
+    setAr([...ar,s])
+    console.log(ar)
+  }
+  console.log(ar)
+  function del(i){
+    ar.splice(i,1)
+    setAr([...ar])
+  }
+  return (
+    <div >
+      
+       <input type ='text' id='myval' />
+       <button onClick={add}>Add</button>
+       <ul>
+          {
+          ar.map((e,i)=>
+            <li key={i}>{e}   <span onClick={()=>{del(i)}} style={{border:'1px solid'}}>Delete</span></li>
+          )
+        }
+       </ul>
+    </div>
+  );
+}
+
+Contact Cards
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [ar,setAr]= useState([])
+  var [br,setBr]= useState([11,67,23,88,12,8])
+  var cr=[22,44,6,7,33]
+  console.log(cr.indexOf(116))
+  var source=''
+  function addCon(e){
+    e.preventDefault(); 
+    var ob={ }
+    ob.Name=document.contactcard.name.value;
+    ob.Age=document.contactcard.age.value;
+    ob.Gen=document.contactcard.gen.value;
+    var arcolors=[]
+    document.contactcard.color.forEach(el => {
+        if(el.checked)
+        arcolors.push(el.defaultValue)
+    })
+    ob.color=arcolors;
+    ob.src=source;
+    source=''
+   // var {Name,Age,Gen,color,src}=ob
+   setAr([...ar,ob])
+   console.log(ar)
+   document.contactcard.reset()
+  }
+  function editStd(i){
+    document.contactcard.name.value=ar[i].Name;
+    document.contactcard.age.value=ar[i].Age
+    document.contactcard.gen.value=ar[i].Gen
+    document.contactcard.color.value=ar[i].color
+    var clr=ar[i].color
+    document.contactcard.color.forEach(e=>{
+      if (clr.indexOf(e.defaultValue)!=-1){
+        e.checked=true
+      }
+    })
+     ar.splice(i,1)
+     setAr([...ar])
+} 
+  function uploadimg(e){
+    console.log('image')
+     var files=e.target.files[0]
+     var filereader=new FileReader();
+      filereader.readAsDataURL(files);
+      filereader.onloadend=function(){
+          source=filereader.result.toString();
+      }
+ }
+  function deleteStd(i){
+    console.log(i)
+    ar.splice(i,1)
+    setAr([...ar])
+    console.log(ar)
+  }
+    
+  return (
+    <div >
+      <form name="contactcard">
+            <h2 className='orange' >Add Contact Cards</h2>
+           <label>Name:</label> <input type="text" name='name' placeholder="enter name" required/>
+            <br/><br/>
+            <label>Age:</label> <input type="number" name='age' placeholder="enter age" required/>
+            <br/><br/>
+            <label>Gender:</label> 
+            <input type="radio" name="gen" value="Male" />Male
+            <input type="radio" name="gen" value="Female" />Female<br/><br/>
+            <label>Colors:</label> 
+            <input type="checkbox" name="color" value="Blue" />Blue
+            <input type="checkbox" name="color" value="Green" />Green
+            <input type="checkbox" name="color" value="Yellow" />Yellow
+            <input type="checkbox" name="color" value="Purple" />Purple
+            <input type="checkbox" name="color" value="Pink" />Pink
+            <input type="checkbox" name="color" value="Black" />Black<br/><br/>
+            <label>Upload photo:</label>
+            <input type="file" name="photo" placeholder="Enter Image URL" onChange={uploadimg} required/><br/><br/>
+            <button type="button" onClick={addCon}>Submit details</button>
+        </form>
+         
+          <div id="cardBody">{
+            ar.map((ob,i)=>
+              <div className='card' key={i}>
+                  <img alt="alter" src={ob.src} style={{width:'30px', height:'30px'}} />
+                  <div id="dlt" onClick={()=>{deleteStd(i)}}>x</div>
+                  <div>Name : {ob.Name} </div>
+                  <div>Age : {ob.Age}</div>
+                  <div>Gen : {ob.Gen}</div>
+                  <div>color :{ob.color.map((c,i)=><span key={i}>{c},</span>)} </div>
+                  <button id="edit" onClick={()=>{editStd(i)}}>Edit</button>
+              </div>)
+            }
+          </div> 
+         
+      </div>
+  );
+}
+export default App;

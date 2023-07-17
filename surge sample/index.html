@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <style>
+         body{
+            text-align: center;
+        }  
+        #bar{
+            width: 90%;
+            height: 50px;
+            border:1px solid black;
+            margin: 20px auto;
+        }
+        #fillclr{
+            background: #55bfd8;
+            height: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="bar">
+            <div id="fillclr"></div>
+        </div>
+        <button onclick="start()">Start</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="stop()">Stop</button>
+     <script>
+        var w=0,pb;
+        document.getElementById('fillclr').style.width=w+'%'
+        function start(){
+            clearInterval(pb)
+            pb=setInterval(function(){
+                w++;
+                if(w<=100)
+                    document.getElementById('fillclr').style.width=w+'%'  
+           },100)
+        }
+         function pause(){
+            clearInterval(pb)
+            console.log(w)
+         }
+         function stop(){
+            clearInterval(pb);
+            w=0
+            document.getElementById('fillclr').style.width=w+'%'
+            console.log(w)
+         }
+      
+        </script>
+    </body>
+</html>

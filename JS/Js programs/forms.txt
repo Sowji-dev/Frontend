@@ -1,0 +1,779 @@
+22.
+<html>
+    <head>
+        <style>
+         body{
+            text-align: center; font-family: sans-serif;
+        }  
+        label{margin: 5px;color: #f1600a;}
+        button,.subm{background: #f1600a;
+            margin: 15px;
+            font-size: 16px;
+            padding: 5px 15px;
+            border: none;}
+        /* #cardBody>div{    padding: 10px;
+            width: 200px;
+            border: 2px solid #f1600a;
+            display: inline-block;
+            color: #f1600a;
+            margin: 10px;
+        } */
+        img{border-radius: 25px;margin: 15px 50px;
+            height: 60px;
+            width: 60px;}
+            #dlt{text-align: right;padding: 0px 5px 10px 0px;  
+            }
+        #crud div{
+            border: 1px solid black;
+            width: 100px;
+            margin: auto;
+            padding: 5px;
+        }
+        #srch{margin:10px auto}
+        </style>
+    </head>
+    <body>
+        <h2  style=" color: #f1600a;">Add Contact Cards</h2>
+        <form name="contactcard">
+           <label>Name:</label> <input type="text" name='name' placeholder="enter name" required/>
+            <br/><br/>
+            <label>Age:</label> <input type="number" name='age' placeholder="enter age" required/>
+            <br/><br/>
+            <label>Gender:</label> 
+            <input type="radio" name="gen" value="Male" />Male
+            <input type="radio" name="gen" value="Female" />Female<br/><br/>
+            <label>Colors:</label> 
+            <input type="checkbox" name="color" value="Blue" />Blue
+            <input type="checkbox" name="color" value="Green" />Green
+            <input type="checkbox" name="color" value="Yellow" />Yellow
+            <input type="checkbox" name="color" value="Purple" />Purple
+            <input type="checkbox" name="color" value="Pink" />Pink
+            <input type="checkbox" name="color" value="Black" />Black<br/><br/>
+            <label>Upload photo:</label>
+            <input type="file" name="photo" placeholder="Enter Image URL" onchange="uploadimg(event)" required/><br/><br/>
+            <!-- <input type="submit" class="subm" value="Submit details"> -->
+            <button type="button" onclick="addCon(event)">Submit details</button>
+        </form>
+        <div id="fillform" style="color:red"></div>
+        <div id="crud">
+           <div id='sortCon' onclick="sortAlph()">Sort &#x2191;&#x2193;</div>
+           <input type="text" id='srch' onkeyup="searchcont(event)" placeholder="Search"/>
+        </div> 
+       <h4 id="cardBody"></h4> 
+     <script>
+      var ar=[],tempar=[]
+      j=0
+      document.getElementById('sortCon').style.display='none'
+      document.getElementById('srch').style.display='none'
+       function addCon(e){
+            e.preventDefault(); 
+            var ob={ }
+            ob.Name=document.contactcard.name.value;
+            ob.Age=document.contactcard.age.value;
+            ob.Gen=document.contactcard.gen.value;
+            arcolors=[]
+            document.contactcard.color.forEach(el => {
+               if(el.checked)
+                arcolors.push(el.defaultValue)
+            })
+            ob.color=arcolors;
+            ob.src=source;
+            source=''
+            var {Name,Age,Gen,color,src}=ob
+           
+           // if(Name && Age && Gen && color && src)
+                ar.push(ob)
+                genCards();
+                document.contactcard.reset()
+           
+            
+       }     
+        function genCards(){
+            if(ar.length<1)
+                document.getElementById('sortCon').style.display='none'
+            else
+                document.getElementById('sortCon').style.display='block'
+            if(ar.length<1 && tempar.length<1)
+                document.getElementById('srch').style.display='none'
+            else
+                document.getElementById('srch').style.display='block'
+            console.log(ar)
+            document.getElementById('cardBody').innerHTML=''
+            ar.forEach(function(ob,i){
+                // console.log(ar[i].color)
+                card=document.createElement("div");
+                card.style.padding= "10px";
+                card.style.width="200px"
+                card.style.border="2px solid #eb5305"
+                card.style.display="inline-block"
+                card.style.margin="10px"
+                card.style.position="relative"
+                document.getElementById("cardBody").appendChild(card);
+                var dlt=document.createElement("div");
+                dlt.style.position="absolute"
+                dlt.style.top="10px"
+                dlt.style.right="10px"
+                dlt.innerHTML='x'
+                dlt.id='dlt'
+                card.appendChild(dlt)
+                dlt.onclick=function(){
+                    deleteDetails(i)
+                }
+                for(key in ob){
+                    if(key=="src"){
+                        imag=document.createElement("img");
+                        imag.alt="alter";
+                        card.prepend(imag)
+                        imag.src=ob[key]      
+                    }
+                    else{
+                        var div=document.createElement("div");
+                        div.innerHTML=key +" : "+ ob[key];
+                        card.appendChild(div)
+                    }
+                }
+                var edit=document.createElement("button");
+                edit.innerHTML='Edit'
+                edit.id='edit'
+                card.appendChild(edit)
+                edit.onclick=function(){
+                    editDetails(i)
+                }       
+            }) 
+         }
+           
+       var source=''
+       function uploadimg(e){
+          // console.dir(e.target)
+           var files=e.target.files[0]
+           var filereader=new FileReader();
+            filereader.readAsDataURL(files);
+           // console.dir(filereader)
+            filereader.onloadend=function(){
+                source=filereader.result.toString();
+            }
+       }
+
+       function deleteDetails(i){
+            //r=confirm('Are you sure yo want to delete this account')
+            r=confirm(`Are you sure yo want to delete ${ar[i].Name} account`)
+            if(r) {
+                ar.splice(i,1)
+                 genCards()
+            }
+       }
+       function editDetails(i){
+           document.contactcard.name.value=ar[i].Name;
+            document.contactcard.age.value=ar[i].Age
+            document.contactcard.gen.value=ar[i].Gen
+            document.contactcard.color.value=ar[i].color
+            var clr=ar[i].color
+            document.contactcard.color.forEach(e=>{
+            if (clr.indexOf(e.defaultValue)!=-1){
+                e.checked=true
+            }
+        })
+             ar.splice(i,1)
+       }   
+      function sortAlph(){
+        ar.sort(function(a,b){
+            if(a.Name<b.Name)
+                return -1
+            else 
+                return 1
+        })
+        genCards()
+      }
+      function searchcont(s){
+        // console.dir()
+        // console.log( str.startsWith('s.target.value'))
+            matchAr= ar.filter(function(e){
+                //console.log(e.Name)
+                if(e.Name.startsWith(s.target.value)){
+                    console.log("name is" +e.Name)
+                    return true
+                }
+                    
+            })
+            console.log(matchAr)
+            tempar=ar;
+            ar=matchAr
+            genCards();
+            ar=tempar
+            tempar=[]
+      }
+    
+    </script>
+    </body>
+</html>
+
+
+
+
+ajax get method for geting data from url and displaying in tablr:
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <style>
+            table,th,td{border: 1px solid black; }
+            img{height: 100px;
+            width: 100px;}
+          </style> 
+    </head>
+    <body>
+        <table>
+            <thead>
+                <th>ID</th>
+                <th>Title </th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Rating</th>
+                <th>Description</th>
+                 <th>Category</th>
+            </thead>
+            <tbody id="prod_tabl"></tbody>
+        </table>
+        <script>
+            $.get("https://fakestoreapi.com/products/",function(prod_arr){
+                console.log(prod_arr)
+                prod_arr.forEach( function(prod) {
+                    var tr=document.createElement('tr');
+                    var id=document.createElement('td');
+                    id.innerHTML=prod.id
+                    tr.appendChild(id)
+
+                    var title=document.createElement('td');
+                    title.innerHTML=prod.title
+                    tr.appendChild(title)
+
+                    var price=document.createElement('td');
+                    price.innerHTML=prod.price
+                    tr.appendChild(price)
+
+                    var imag_td=document.createElement('td');
+                    var imag=document.createElement('img');
+                    imag.src=prod.image
+                    imag_td.appendChild(imag)
+                    tr.appendChild(imag_td)
+
+                    var rating=document.createElement('td');
+                    rating.innerHTML=prod.rating.rate+" " +prod.rating.count+"ratings"
+                    tr.appendChild(rating)
+
+                    var desc=document.createElement('td');
+                    desc.innerHTML=prod.description
+                    tr.appendChild(desc)
+
+                    var catg=document.createElement('td');
+                    catg.innerHTML=prod.category
+                    tr.appendChild(catg)
+                    document.getElementById('prod_tabl').appendChild(tr)
+                });
+            })
+        </script>
+    </body>
+</html>
+
+
+
+23.<body>
+        <input id='inptfield' type="text"  disabled />
+        <button onclick='enableField()'>Enable input field</button>
+    </body>
+    <script>
+        function enableField(){
+            r=document.getElementById('inptfield')
+            console.dir(r)
+            document.getElementById('inptfield').disabled=false
+        }
+    </script>
+
+
+28.
+<html>
+    <head>
+        <style>
+         body{
+            text-align: center; font-family: sans-serif;
+        }  
+        label{margin: 5px;color: #f1600a;}
+        button{background: #f1600a;
+            font-size: 16px;
+            padding: 5px 15px;
+            border: none;}
+        #cardBody>div{    padding: 10px;
+            width: 200px;
+            border: 2px solid #f1600a;
+            display: inline-block;
+            color: #f1600a;
+            margin: 10px;
+        }
+        img{border-radius: 25px;
+            margin: 15px auto;
+            height: 50%;
+            width: 50%;
+            display: block;}
+            #dlt{text-align: right;padding: 0px 5px 10px 0px;  
+            }
+        #crud div{
+            border: 1px solid black;
+            width: 100px;
+            margin: auto;
+            padding: 5px;
+        }
+        #srch{margin:10px auto}
+        </style>
+    </head>
+    <body>
+        <input type="file" onchange="previewimg(event)" id="image"/>  
+    </body>
+    <script>
+        function previewimg(){
+            files=document.getElementById('image').files[0];
+            var fr=new FileReader();
+            fr.readAsDataURL(files);
+            fr.onloadend=function(){
+                var imgs=document.createElement('img');
+                imgs.src=fr.result.toString();
+                document.body.appendChild(imgs)
+            }
+        }
+        
+    </script>
+</html>
+
+
+36.<body> 
+        <div id="occ">Occupied: 0</div>
+        <div id="unocc">Unoccupied: 6</div>
+        <div id="seats"></div>
+    </body>
+    <script>
+        a=[0,0,0,0,0,0],occ=0,unocc=6
+        genScreen()
+        function genScreen(){
+            document.getElementById('seats').innerHTML=''
+            a.forEach(function(e,i) {
+                imag=document.createElement('img')
+                if(a[i]==0)
+                     imag.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgaG6SXeZCi4U8FCckS2Z_MznP8jz4C8diL2o_LIm&s'
+                else
+                    imag.src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4qV-2jfS4EpLQFPXBkjmEJY0_9QoSeDq3TA0XzJi0HKIaXWhA3mXZOw&s=0'    
+                imag.onclick=function(event){
+                    calc(i);
+                
+                }
+                document.getElementById('seats').appendChild(imag)
+            });
+        }
+        
+        function calc(i){
+            console.dir( event.srcElement.currentSrc)
+            if(a[i]==0){
+                occ++;
+                unocc--;
+                a[i]=1
+                } 
+            else{
+                occ--;
+                unocc++;
+                a[i]=0
+               } 
+            console.log(i +" is : "+a[i])
+            document.getElementById('occ').innerHTML="Occupied: "+occ
+            document.getElementById('unocc').innerHTML="Unoccupied: "+unocc
+            genScreen()
+        }
+
+         //"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4qV-2jfS4EpLQFPXBkjmEJY0_9QoSeDq3TA0XzJi0HKIaXWhA3mXZOw&s=0";
+       // "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgaG6SXeZCi4U8FCckS2Z_MznP8jz4C8diL2o_LIm&s"
+
+
+ 37. <body>
+        <h2 class="scoreBox">
+            <span id="wkts">0</span>/<span id="runs">0</span>
+        </h2>
+        <button onclick="updateScore(0)">Zero</button>
+        <button onclick="updateScore(1)">One</button>
+        <button onclick="updateScore(2)">Two</button>
+        <button onclick="updateScore(3)">Three</button>
+        <button onclick="updateScore(4)">Four</button>
+        <button onclick="updateScore(5)">Five</button>
+        <button onclick="updateScore(6)">Six</button>
+        <button onclick="updateWick()">Wicket</button>
+    </body>
+    <script>
+        sum=0,wk=0
+        function updateScore(i){
+            console.log(i)
+            sum=sum+i;
+            document.getElementById('runs').innerHTML=sum
+        }
+        function updateWick(i){
+           wk++;
+            document.getElementById('wkts').innerHTML=wk
+        }
+    </script> 
+
+38.<html>
+    <head>
+        <style>
+         body{
+            text-align: center;
+        }  
+        img{height:200px;width:200px}
+        .outer,#bar{height:20px;border:1px solid black}
+        </style>
+    </head>
+    <body>
+        <img id="status" alt="image">
+        <br/>
+        <br/>
+        <div class="outer">
+            <div id="bar"></div>
+        </div>
+        <button onclick="start()">Start</button>
+     <script>
+        a=["https://www.shutterstock.com/image-illustration/green-branch-leaves-small-link-260nw-2116063526.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYIsi3hEwqduxj2yL3n6zGec5DBpzooCc2EJdrEo4dxLUHD6Dy-qV6pO0eUJThAlJsTno&usqp=CAU",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnowqD_sIJDd7osv5Jcnj85Epxkxeru0pT3TDlY4mDx7VsY4cEVmkxluZb0ns_9IIoQwM&usqp=CAU",
+        "https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg",
+         "https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png"]
+         var i=0,w=0
+     function start(){
+        document.getElementById('bar').style.width=0+'%'
+        document.getElementById('bar').style.background='gray'
+        setInterval(() => {
+            console.log(i)
+            i++;
+            w=w+4
+           
+            if(i<5){
+                document.getElementById('bar').style.width=w+'%'
+                document.getElementById('status').src=a[0]
+                document.getElementById('bar').style.background='gray'
+            }
+            else if(i<10){
+                document.getElementById('bar').style.width=w+'%'
+                document.getElementById('status').src=a[1]
+                document.getElementById('bar').style.background='green'
+            }
+            else if(i<15){
+                document.getElementById('bar').style.width=w+'%'
+                document.getElementById('status').src=a[2]
+                document.getElementById('bar').style.background='pink'
+            }
+            else if(i<20){
+                document.getElementById('bar').style.width=w+'%'
+                document.getElementById('status').src=a[3]
+                document.getElementById('bar').style.background='blue'
+            }
+             else if(i<25){
+                document.getElementById('bar').style.width=w+'%'
+                document.getElementById('status').src=a[4]
+                document.getElementById('bar').style.background='red'
+            }
+        }, 300);
+     } 
+        </script>
+    </body>
+</html>
+
+
+34.<html>
+    <head>
+        <style>
+         body{
+            text-align: center;
+        }  
+        #bar{
+            width: 90%;
+            height: 50px;
+            border:1px solid black;
+            margin: 20px auto;
+        }
+        #fillclr{
+            background: #55bfd8;
+            height: 50px;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="bar">
+            <div id="fillclr"></div>
+        </div>
+        <button onclick="start()">Start</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="stop()">Stop</button>
+     <script>
+        var w=0,pb;
+        document.getElementById('fillclr').style.width=w+'%'
+        function start(){
+            clearInterval(pb)
+            pb=setInterval(function(){
+                w++;
+                if(w<=100)
+                    document.getElementById('fillclr').style.width=w+'%'  
+           },100)
+        }
+         function pause(){
+            clearInterval(pb)
+            console.log(w)
+         }
+         function stop(){
+            clearInterval(pb);
+            w=0
+            document.getElementById('fillclr').style.width=w+'%'
+            console.log(w)
+         }
+      
+        </script>
+    </body>
+</html>
+
+35.setInterval stpwatch:
+<body>
+        <h3 id="time"></h3>
+        <div onclick="startWatch()">Start</div>
+        <div onclick="stopWatch()">Stop</div>
+        <div onclick="resetWatch()">Reset</div>
+    </body>
+    <script>
+        var s=0,h=0,m=0,t;
+        document.getElementById('time').innerHTML=h + ' : '+ m +' : '+s
+        function startWatch(){
+            clearInterval(t)
+              t= setInterval(function(){
+              
+                s++;
+                if(s==60){
+                    m++;
+                    s=0
+                }
+                if(m==60){
+                    h++
+                    m=0
+                }
+                //console.log('heelo')
+                document.getElementById('time').innerHTML=h + ' : '+ m +' : '+s
+            },100)
+        }
+        
+        function stopWatch(){
+            var lap=document.getElementById('time').innerHTML;
+            console.dir("lap: " +lap)
+            clearInterval(t)
+        }
+
+        function resetWatch(){
+            s=0;
+            h=0;
+            m=0;
+            clearInterval(t)
+            document.getElementById('time').innerHTML=h + ' : '+ m +' : '+s
+           
+        }
+    </script>
+
+
+
+
+rest countries api
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" 
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+        <style>
+         body{
+            text-align: center; font-family: sans-serif;
+        }  
+        label{margin: 5px;color: #f1600a;}
+        button{background: #f1600a;
+            font-size: 16px;
+            padding: 5px 15px;
+            border: none;}
+        #cardBody>div{    padding: 10px;
+            width: 200px;
+            border: 2px solid #f1600a;
+            display: inline-block;
+            color: #f1600a;
+            margin: 10px;
+        }
+        img{border-radius: 25px;
+            margin: 15px auto;
+            height: 60px;
+            width: 60px;}
+            #dlt{text-align: right;padding: 0px 5px 10px 0px;  
+            }
+        #crud div{
+            border: 1px solid black;
+            width: 100px;
+            margin: auto;
+            padding: 5px;
+        }
+        #srch{margin:10px auto}
+        table,th,td{border: 1px solid black; }
+        </style>
+    </head>
+        
+    <body>
+        <table>
+            <thead id="prod_hd">
+                
+            </thead>
+            <tbody id="prod_tabl"></tbody>
+        </table>
+    </body>
+    <script>
+    //      $.get('https://restcountries.com/v2/all',function(res){
+    //     console.dir(res)
+    //    })
+       axios.get('https://restcountries.com/v2/all').then(function(res){
+        console.dir(res.data)
+        res.data.forEach(ob=>{
+           
+            document.getElementById('prod_hd').innerHTML=''
+               var newtr=document.createElement('tr')
+             for(key in ob){
+                var newth=document.createElement('th')
+                newth.innerHTML=key;
+                document.getElementById('prod_hd').appendChild(newth)
+                var newtd=document.createElement('td')
+                //console.log(typeof ob[key])
+                if(typeof ob[key] == 'string' || typeof ob[key] == 'number'){
+                   
+                   
+                    newtd.innerHTML=ob[key]
+                    
+                }
+                if(typeof ob[key] == 'object'){
+                    for(k in ob[key]){
+                        var newdiv=document.createElement('div')
+                        newdiv.innerHTML=ob[key][k]
+                        newtd.appendChild(newdiv)
+                    }
+                }
+                newtr.appendChild(newtd)
+               
+             }
+             document.getElementById('prod_tabl').appendChild(newtr)    
+           
+        })
+       
+       })
+    
+    //    fetch('https://restcountries.com/v2/all').then(function(res){
+    //        return res.json();
+           
+    //    })
+    //    .then(function(res){
+    //         console.log(res);
+            
+    //    })
+         
+    </script>
+</html>
+
+dritymn sir example
+<html>
+    <head>
+        <style>
+        body{text-align: center;}
+         /* #ulid{  
+              width: max-content;
+            border: 2px solid black;
+            padding: 10px 30px;
+        } */
+        .colors{display: inline-flex;}
+        .colors ul{
+            height: 150px;
+            border: 2px solid black;
+            padding: 10px 30px;
+            width: 140px;
+            margin: 15px;
+        }
+        #ulid span{border:1px solid black;margin:5px;}
+        #blue{background-color: rgba(79, 104, 244, 0.326);}
+        #red{background-color: rgba(235, 25, 25, 0.635);}
+        </style>
+    </head>
+    <div class="colors">
+        <ul id='blue'></ul>
+        <ul  id="ulid"></ul>
+        <ul id='red'></ul>
+        
+    </div>
+    <body>
+       
+        <script>
+            var ar=["Mahesh","Arjun","Charan","Prabhas","Vijay","NTR"]
+            var b=[],r=[]
+            genA()
+            function genA(){
+                document.getElementById('ulid').innerHTML=''
+                ar.forEach((e,i)=>{                   
+                    var nli=document.createElement('li');
+                    nli.innerHTML=e;               
+                    document.getElementById('ulid').appendChild(nli);
+                    var blue=document.createElement('span');
+                    blue.innerHTML='Blue';
+                    blue.onclick=function(){
+                        onClickBlue(i)
+                    }
+                    nli.appendChild(blue);
+                    var red_btn=document.createElement('span');
+                    red_btn.innerHTML='Red';
+                    red_btn.onclick=function(){
+                        onClickRed(i)
+                    }
+                    nli.appendChild(red_btn);
+                })
+            }
+            function genB(j){
+                document.getElementById('blue').innerHTML=''
+                b.forEach((e,i)=>{
+                    var nli=document.createElement('li');
+                    nli.innerHTML=e;               
+                    document.getElementById('blue').appendChild(nli);
+                    var del=document.createElement('span');
+                    del.innerHTML='x';
+                    del.onclick=function(){   
+                     ar=[...ar,(b.splice(i,1))]
+                        genA()
+                        genB()
+                    }
+                    nli.appendChild(del);
+                })
+            }
+            function genR(j){
+                document.getElementById('red').innerHTML=''
+                r.forEach((e,i)=>{
+                    var nli=document.createElement('li');
+                    nli.innerHTML=e;               
+                    document.getElementById('red').appendChild(nli);
+                    var del=document.createElement('span');
+                    del.innerHTML='x';
+                    del.onclick=function(i){
+                        ar=[...ar,(r.splice(i,1))]
+                        genA()
+                        genR()
+                    }
+                    nli.appendChild(del);
+                })
+            }
+            function onClickBlue(i){
+                b=[...b,ar.splice(i,1)]
+                genB(i)
+                genA(i)
+            }
+            function onClickRed(i){
+                r=[...r,ar.splice(i,1)]
+                genR(i)
+                genA(i)
+            }
+            
+        </script>
+    </body>
+</html>

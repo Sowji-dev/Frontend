@@ -1,0 +1,420 @@
+4.var htag=document.createElement("h1");
+        htag.innerHTML=("sowji" || false) ? "sowji" : ""
+        document.body.appendChild(htag)
+
+5. var ar=[10,24,532,6746,242]
+        ar.forEach(function(a,i){
+            var htag=document.createElement("h1");
+        htag.innerHTML=a
+        document.body.appendChild(htag)
+        })
+
+6.    a=["hi","hello","abc","world","apple"]
+         var li=document.createElement("li")
+            li.innerHTML=a.join('')
+            document.getElementById("ulid").append(li)
+        
+       
+7.
+            var htag=document.createElement("h1");
+        htag.innerHTML=Math.sqrt(14)
+        document.body.appendChild(htag)
+
+8.var htag=document.createElement("h1");
+        htag.innerHTML=parseInt(213.53)
+        document.body.appendChild(htag)
+
+9.
+        var s="sowjanya"
+            var htag=document.createElement("h1");
+        htag.innerHTML=s.toUpperCase()
+        document.body.appendChild(htag)        
+
+11.var s="sowjanya"
+            var htag=document.createElement("h1");
+            r=s.split('').reverse().join('')
+        htag.innerHTML=r
+        document.body.appendChild(htag)
+
+14.var n=+prompt("enter n")
+            var htag=document.createElement("h1");
+        htag.innerHTML=(n%2==0)?"even":"odd"
+        document.body.appendChild(htag)
+               
+18.var n=prompt("enter n")
+            var img=document.createElement("img")
+        img.src=(n) ? "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnowqD_sIJDd7osv5Jcnj85Epxkxeru0pT3TDlY4mDx7VsY4cEVmkxluZb0ns_9IIoQwM&usqp=CAU"
+        : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFgaG6SXeZCi4U8FCckS2Z_MznP8jz4C8diL2o_LIm&s"
+        document.body.appendChild(img)
+
+ 21.var a=[4,5,6,7,8,9,10]
+        a.forEach(function(a,i){
+            var li=document.createElement("li")
+            li.innerHTML=a*a;
+            document.getElementById("ulid").append(li)
+        })    
+
+22.var a=[4,5,6,7,8,9,10]
+        b=[32,33,45,64,854]
+        a.concat(b).forEach(function(e){
+            var li=document.createElement("li")
+            li.innerHTML=e;
+            document.getElementById("ulid").append(li)
+        })
+            
+23.a=[321,33,425,614,54]
+        a.sort(function(a,b){
+            if(a>b)
+                return 1
+            else 
+              return -1
+        })
+           
+        a.forEach(function(e){
+            var li=document.createElement("li")
+            li.innerHTML=e
+            document.getElementById("ulid").append(li)
+        })
+25. a=[321,33,425,614,54]
+        b=[32,313,5,64,24]
+        c=a.concat(b)
+        c.sort(function(a,b){
+            if(a>b)
+                return 1
+            else 
+              return -1
+        })
+           
+       c.forEach(function(e){
+            var li=document.createElement("li")
+            li.innerHTML=e
+            document.getElementById("ulid").append(li)
+        })
+27.<ul id="ulid"></ul>
+       <ol id="olid"></ol>
+     <script>
+        a=["hi","hello","abc","world","apple"]
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e
+            document.getElementById("ulid").append(li)
+        })
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e
+            document.getElementById("olid").append(li)
+        }) 
+
+    28.  <ul id="ulid"></ul>
+       <ol id="olid"></ol>
+     <script>
+        a=["hi","hello","abc","world","apple"]
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e.toUpperCase()
+            document.getElementById("ulid").append(li)
+        })
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e.toLowerCase()
+            document.getElementById("olid").append(li)
+        }) 
+
+30. a=["hi","hello","abc","world","apple"]
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e.length
+            document.getElementById("ulid").append(li)
+        })
+
+32.a=["hiii","hello","abc","world","apple"]
+        a.forEach(function(e){
+         var li=document.createElement("li")
+            li.innerHTML=e.substring(0,2)
+            document.getElementById("ulid").append(li)
+        }) 
+
+35. a=["hiii","hello","abc","world","apple"]
+        a.forEach(function(e){
+            var li=document.createElement("li")
+            li.innerHTML=e.split("").reverse().join("")
+            document.getElementById("ulid").append(li)
+        }) 
+
+36.a=["Hiii","mango","Abc","world","apple"]
+        a.sort().forEach(function(e){
+            var li=document.createElement("li")
+            li.innerHTML=e
+            document.getElementById("ulid").append(li)
+        })
+
+37. a=[109,99,30,140,50,210,44]
+        a.forEach(function(e,i){
+            if(i%2==0){
+                var li=document.createElement("li")
+                li.innerHTML=e
+                document.getElementById("ulid").append(li)
+            }
+        }) 
+
+39. a=[109,99,3,140,24,10,44]
+        a.forEach(function(e,i){
+            if(e>25){
+                var li=document.createElement("li")
+                li.innerHTML=e
+                document.getElementById("ulid").append(li)
+            }
+        }) 
+
+41.a=[104,99,3,140,29,10,44]
+        a.forEach(function(e,i){
+            if(e%2==0)
+                var li=document.createElement("i")
+            else
+                var li=document.createElement("b")
+            li.innerHTML=e+" "
+            document.getElementById("ulid").append(li)
+            }
+        ) 
+
+43.  a=[1,2,3,4,5,6,7]
+        k=document.createElement("div");
+        k.innerHTML=a.reduce(function(a,b){
+            console.log(a)
+            s=a+b;
+            return s
+        },0)
+        document.body.appendChild(k)
+        console.log("sum: "+s)
+
+44.var ar = [
+                  "https://cdn.pixabay.com/photo/2023/04/08/01/23/mom-7908059_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/01/07/11/31/tigers-591359_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg"
+                ]
+        ar.filter(function(e){
+            im=document.createElement("img");
+            im.src=e;
+            document.body.append(im)
+        })
+     
+45. var ar = [
+                  "https://cdn.pixabay.com/photo/2023/04/08/01/23/mom-7908059_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/01/07/11/31/tigers-591359_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg"
+                ]
+        ar.filter(function(e){
+            li=document.createElement("li");
+            im=document.createElement("img");
+            im.src=e;     
+            document.getElementById("ulid").append(li)
+            li.appendChild(im)
+        })
+
+46.var ar = [
+                  "https://cdn.pixabay.com/photo/2023/04/08/01/23/mom-7908059_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/01/07/11/31/tigers-591359_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg"
+                ]
+                tr=document.createElement("tr");
+        ar.filter(function(e){
+            td=document.createElement("td");
+            im=document.createElement("img");
+            im.src=e;     
+            document.getElementById("tid").appendChild(tr)
+            tr.appendChild(td)
+            td.appendChild(im)  
+        })
+
+47.var person = {
+            "firstName" : "Harry",
+            "lastName" : "Potter",
+            "age": 30,
+            "gender": "male",
+            "skill" : "ReactJS",                                
+            "expertise": "Beginner"
+        };
+        for(key in person){
+            div=document.createElement("div");
+            div.innerHTML=key +" : "+ person[key]
+            document.body.appendChild(div)
+        }
+
+48. var person = {
+            "firstName" : "Harry",
+            "lastName" : "Potter",
+            "age": 30,
+            "gender": "male",
+            "skill" : "ReactJS",                                
+            "expertise": "Beginner"
+        };
+        for(key in person){
+            div=document.createElement("div");
+            div.innerHTML=key +" : "+ person[key].toString().toUpperCase()
+            document.body.appendChild(div)
+        }
+
+
+49.var students = [
+        {
+          firstname:"Praveen",
+          lastname:"Gubbala",
+          age:40
+        },
+        {
+          firstname:"Rohit",
+          lastname:"Sharma",
+          age:35
+        },
+        {
+          firstname:"Sachin",
+          lastname:"Tendulkar",
+          age:50
+        },
+    ]
+    students.forEach(person => {
+        ul=document.createElement("ul");
+        for(key in person){
+            li=document.createElement("li");
+            li.innerHTML= person[key]
+            ul.appendChild(li)
+        }
+        document.body.appendChild(ul)
+       }); 
+
+51.   var students = [
+        {
+          firstname:"Praveen",
+          lastname:"Gubbala",
+          age:40,
+          gender:"male"
+        },
+        {
+          firstname:"Smrithi",
+          lastname:"mandana",
+          age:25,
+          gender:'female'
+        },
+        {
+          firstname:"mithali",
+          lastname:"raj",
+          age:39,
+          gender:'female'
+        },
+        {
+          firstname:"Rohit",
+          lastname:"Sharma",
+          age:35,
+          gender:'male'
+        },
+        {
+          firstname:"Sachin",
+          lastname:"Tendulkar",
+          age:50,
+          gender:'male'
+        },
+    ]
+    var maleimage="https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg";
+    var femaleimage="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png";
+    students.forEach(person => {
+        tr=document.createElement("tr");
+        for(key in person){
+            td=document.createElement("td");
+            if(key=='gender'){
+                var img=document.createElement("img");
+                img.src=(person[key]=='male')?'https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg'
+                    :'https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png'
+                td.appendChild(img)
+            }
+            else
+                td.innerHTML= person[key]
+            tr.appendChild(td)
+        }
+            document.getElementById('tid').appendChild(tr)
+       }); 
+
+53. var gr = [
+          [
+            "https://cdn.pixabay.com/photo/2017/09/25/13/12/puppy-2785074_1280.jpg",
+            "https://cdn.pixabay.com/photo/2016/12/13/05/15/puppy-1903313_1280.jpg",
+            "https://cdn.pixabay.com/photo/2016/05/09/10/42/weimaraner-1381186_1280.jpg"
+          ],
+          [
+            "https://cdn.pixabay.com/photo/2017/02/20/18/03/cat-2083492_1280.jpg",
+            "https://cdn.pixabay.com/photo/2017/11/09/21/41/cat-2934720_1280.jpg",
+            "https://cdn.pixabay.com/photo/2014/04/13/20/49/cat-323262_1280.jpg",
+            "https://cdn.pixabay.com/photo/2015/03/27/13/16/maine-coon-694730_1280.jpg",
+            "https://cdn.pixabay.com/photo/2016/02/10/16/37/cat-1192026_1280.jpg"
+          ]
+        ]
+
+        gr.forEach(ob => {
+            div1=document.createElement("div");
+            div1.innerHTML='Slide'
+            for(key in ob){
+                img=document.createElement("img");
+                img.src= ob[key]
+                div1.appendChild(img)
+            }
+            document.body.appendChild(div1)
+      
+        });
+
+
+56.var students = [
+        {
+          firstname:"Praveen",
+          lastname:"Gubbala",
+          age:40,
+          gender:"male"
+        },
+        {
+          firstname:"Smrithi",
+          lastname:"mandana",
+          age:25,
+          gender:'female'
+        },
+        {
+          firstname:"mithali",
+          lastname:"raj",
+          age:39,
+          gender:'female'
+        },
+        {
+          firstname:"Rohit",
+          lastname:"Sharma",
+          age:35,
+          gender:'male'
+        },
+        {
+          firstname:"Sachin",
+          lastname:"Tendulkar",
+          age:50,
+          gender:'male'
+        },
+    ]
+   genTable()
+       function genTable(){
+         document.getElementById('tid').innerHTML=''
+            students.forEach(function(person,i) {
+                tr=document.createElement("tr");
+                for(key in person){
+                    td=document.createElement("td");
+                    td.innerHTML= person[key]
+                    tr.appendChild(td)
+                }
+                dlt=document.createElement("td");
+                dlt.innerHTML= "Delete",
+                dlt.onclick=function(){
+                    deleteSt(i)
+                }
+                tr.appendChild(dlt)
+                    document.getElementById('tid').appendChild(tr)
+            });
+        
+        }
+       function deleteSt(i){
+        console.log('hi')
+        students.splice(i,1)
+        genTable();
+       }

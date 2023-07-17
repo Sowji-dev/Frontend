@@ -1,0 +1,86 @@
+
+import './App.css';
+
+function App() {
+  var c=0
+  console.log('app fn' +c);
+
+  var ar = [
+    {
+      firstname:"Sowji",
+      lastname:"Ganta",
+      age:25,
+      gender:"male"
+    },
+    {
+      firstname:"RAmya",
+      lastname:"sri",
+      age:25,
+      gender:'female'
+    },
+    {
+      firstname:"mani",
+      lastname:"sai",
+      age:39,
+      gender:'male'
+    },
+    {
+      firstname:"Ravi",
+      lastname:"varma",
+      age:35,
+      gender:'male'
+    },
+    {
+      firstname:"Naya",
+      lastname:"papa",
+      age:5,
+      gender:'female'
+    }
+]
+var maleimage="https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg";
+var femaleimage="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png";
+
+function addEmp(e){
+  e.preventDefault()
+  ob.firstname=document.empForm.fname.value;
+  ob.lastname=document.empForm.lname.value;
+  ob.age=document.empForm.age.value;
+  ob.gender=document.empForm.gen.value;
+  console.log(ob)
+  ar.push(ob);
+  console.log(ar)
+}
+
+var ob={}
+  return (
+    <div >
+        <form name="empForm">
+            <input type="text" name="fname" placeholder="Enter First Name" /><br/>
+            <input type="text" name="lname" placeholder="Enter Last Name" /><br/>
+            <input type="text" name="age" placeholder="Enter Age" /><br/>
+            <input type="radio" name="gen" id='male' value="male" />Male
+            <input type="radio" name="gen" id='female' value="female" />Female
+            <input type="radio" name="gen" id='others' value="others" />Others<br/>
+            <button onClick={addEmp}>Add Emp</button>
+          
+        </form>
+        <table border='2'>
+          <tbody>
+          {
+              ar.map((a,i)=>{
+                return <tr key={i}>
+                  <td>{ a.firstname}</td>
+                  <td>{ a.lastname}</td>
+                  <td>{ a.age}</td>
+                  <td><img src={a.gender=='male' ? maleimage : femaleimage} style={{width:'50px'}}/></td>
+                </tr>
+                
+                })
+          }
+          </tbody>
+        </table>
+    </div>
+  );
+}
+
+export default App;

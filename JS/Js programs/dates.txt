@@ -1,0 +1,91 @@
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    </head>
+    
+    <body>
+        <input type="date" id="date"  onchange="clickedDate()"/>
+        <button>Click</button>
+        <script>
+            function clickedDate(){
+                var dob=new Date(document.getElementById('date').value);
+                var d=new Date();
+               //console.log(dob,d)
+                var ms=d-dob;
+                //console.log(ms)
+                const minute = 1000 * 60;
+                const hour = minute * 60;
+                const day = hour * 24;
+                const year = day * 365;
+                let years = ms/ year;  
+                console.log(`Age is ${years} years`)            
+            }
+
+           
+          </script>
+    </body>
+</html>
+
+
+
+
+
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> 
+    </head>
+    <body> 
+        <button onclick="clickIn()" id="in">IN</button>
+        <button onclick="clickOut()" id="out">OUT</button>
+        <button onclick="clickTotal()" id="total">TOTAL</button>
+        <script>
+            document.getElementById('out').style.display='none'
+            var indate,outDate,ar=[],s=0
+            function clickIn(){
+                  document.getElementById('in').style.display='none'  
+                  document.getElementById('out').style.display='inline'
+                  indate=new Date()
+                 // console.log(indate)    
+            }
+            function clickOut(){
+                document.getElementById('out').style.display='none'
+                document.getElementById('in').style.display='inline'  
+               outDate=new Date()    
+               ar.push(outDate-indate)  
+            }
+            function clickTotal(){
+                console.log(ar)
+                ar.forEach(t=>{
+                    s=s+t;
+                })
+                console.log(`${s} milliseconds`)
+            }
+ </script>
+    </body>
+</html>
+
+
+
+<!-- function clickedDate(){
+                
+
+    var d1=document.getElementById('date').value
+    //var dd=Date.parse(d1)
+    var d2=new  Date();
+    dy=d2.getFullYear()
+    console.log(d1,d2)
+
+    const date = new Date(d1);
+    const yearOfDate = date.getFullYear();   
+    console.log(dy-yearOfDate) 
+    console.log(d2-date)  
+    
+    
+
+    const minute = 1000 * 60;
+const hour = minute * 60;
+const day = hour * 24;
+const year = day * 365;
+let years = Math.round((d2-date) / year);
+console.log(years)
+} -->
