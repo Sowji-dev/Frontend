@@ -273,3 +273,331 @@ function App() {
   );
 }
 export default App;
+
+
+Display selected checkbox values in console
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var urls={  Apple: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWIGXrMUK0x55jWf84PFtVfG0PpNu3YbMlA&usqp=CAU',
+    Mango:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLH9oGfx34_6uuD0sG9kPm7fxrcH2untzgPA&usqp=CAU',
+  
+  Strawberry:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7lx4OJq10QDBTO17TSXD9KSaJPgPFq-pxhg&usqp=CAU',
+  
+  Banana: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpeFA965EtNqz8h9arKnPvC3xl4ApS_-I3cR8uhXnQmQ&s'
+}
+  var [ar,setAr]= useState([]);
+  var [frt,setFrt]= useState('');
+  function clicked(e){
+      ar=[]
+    console.log(document.myForm.fruits)
+    document.myForm.fruits.forEach(e=>{
+      if(e.checked==true){
+        ar.push(e.defaultValue)
+        setAr([...ar]);
+      }
+    })
+  }
+  return (
+    <div >
+      <div style={{width:'500px',height:'200px', border:'2px solid'}}>
+      <form name='myForm'>
+          Fruts:   
+           <input name='fruits' type='checkbox' value='Apple' onChange={clicked}/>Apple
+           <input name='fruits' type='checkbox' value='Mango'  onChange={clicked}/>Mango
+           <input name='fruits' type='checkbox' value='Strawberry'  onChange={clicked}/>Strawberry
+           <input name='fruits' type='checkbox' value='Banana'  onChange={clicked}/>Banana
+        </form>
+        <br/>
+        <div>
+          {
+            ar.map(e=><div>{e}</div>)
+          }
+        </div>
+      </div>
+      </div>
+  );
+}
+export default App;
+
+Display the selected day in h1
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [day,setDay]=useState('')
+  const weekday = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  function changeDate(){
+    var date=new Date(document.getElementById('date').value)
+    var d = date.getDay();
+    setDay(weekday[d])
+}
+  return (
+    <div >
+      <div style={{width:'500px',height:'200px', border:'2px solid'}}>
+      <form name='myForm'>  
+           <input id='date' type='date' onChange={changeDate}/>
+        </form>
+        <br/>
+        <div>
+          {day}
+        </div>
+      </div>
+      </div>
+  );
+}
+export default App;
+
+
+Bindevent handler with arguments
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [i,setI]=useState('')
+  function clicked(i){
+    setI(i)
+}
+  return (
+    <div >
+      <div style={{width:'500px',height:'200px', border:'2px solid'}}>
+        <button onClick={()=>{clicked(1)}}>Button 1</button>
+        <button onClick={()=>{clicked(2)}}>Button 2</button>
+        <button  onClick={()=>{clicked(3)}}>Button 3</button>
+        <button  onClick={()=>{clicked(4)}}>Button 4</button>
+        <button  onClick={()=>{clicked(5)}}>Button 5</button>
+        <br/>
+        <div>{i}</div>
+      </div>
+      </div>
+  );
+}
+export default App;
+
+
+Bindevent handler with arguments as index for list item genereted
+from array
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var ar=['Sowji','Sai','Siri','Ram','Sita']
+  var [i,setI]=useState('')
+  function clicked(i){
+    setI(i)
+}
+  return (
+    <div >
+      <div style={{width:'500px',height:'200px', border:'2px solid'}}>
+       {
+        ar.map((e,i)=>{
+          return <li key={i} onClick={()=>{
+           alert(e + ' index is : '+ i)
+          }}>{e}</li>
+        })
+       }
+      </div>
+      </div>
+  );
+}
+export default App;
+
+Bindevent handler with arguments as values for list item genereted
+from array of objects
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var ar = [
+    {
+      firstname:"Praveen",
+      lastname:"Gubbala",
+      age:40,
+      gender:'male'
+    },
+    {
+      firstname:"Smrithi",
+      lastname:"mandana",
+      age:25,
+      gender:'female'
+    },
+    {
+      firstname:"mithali",
+      lastname:"raj",
+      age:39,
+      gender:'female'
+    },
+    {
+      firstname:"Rohit",
+      lastname:"Sharma",
+      age:35,
+      gender:'male'
+    },
+    {
+      firstname:"Sachin",
+      lastname:"Tendulkar",
+      age:50,
+      gender:'male'
+    },
+  ];
+  var [i,setI]=useState('')
+  function clicked(i){
+    setI(i)
+}
+  return (
+    <div >
+      <div style={{width:'500px',height:'200px', border:'2px solid'}}>
+       {
+        ar.map((e,i)=>{
+          return <li key={i} onClick={()=>{
+           alert(e.firstname + ' index is : '+ i)
+          }}>{e.firstname}</li>
+        })
+       }
+      </div>
+      </div>
+  );
+}
+export default App;
+
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var ar = [
+    {
+      firstname:"Praveen",
+      lastname:"Gubbala",
+      age:40,
+      gender:'male'
+    },
+    {
+      firstname:"Smrithi",
+      lastname:"mandana",
+      age:25,
+      gender:'female'
+    },
+    {
+      firstname:"mithali",
+      lastname:"raj",
+      age:39,
+      gender:'female'
+    },
+    {
+      firstname:"Rohit",
+      lastname:"Sharma",
+      age:35,
+      gender:'male'
+    },
+    {
+      firstname:"Sachin",
+      lastname:"Tendulkar",
+      age:50,
+      gender:'male'
+    },
+  ];
+  var [name,setName]=useState('')
+  var [id,setID] = useState('')
+  function clicked(e,i){
+    setID(i)
+    setName(e.firstname)
+  }
+  return (
+    <div >
+      <div >
+       {
+        ar.map((e,i)=>{
+          return <div  onClick={()=>{
+            clicked(e,i)
+          }}>
+           {e.firstname}
+          </div>
+        })
+       }
+      </div>
+      <h2>{name}   {id}</h2>
+      </div>
+  );
+}
+export default App;
+
+
+
+Implement counter application
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [c,setC] = useState(0)
+  function incr(){
+    setC(c+1)
+  }
+  function decr(){
+    setC(c-1)
+  }
+  function reset(){
+    setC(0)
+  }
+  return (
+    <div >
+      <div >{c}</div>
+      <button onClick={incr}>Increment</button>
+      <button onClick={decr}>Decrement</button>
+      <button onClick={reset}>Reset</button>
+      </div>
+  );
+}
+export default App;
+
+
+Todolist with delete button
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [ar,setAr]=useState([])
+  var i;
+ function clicked(){
+   ar.push(document.getElementById('todo').value);
+   setAr([...ar])
+ }
+ function deleteList(i){
+    ar.splice(i,1)
+    setAr([...ar])
+ }
+  return (
+    <div >
+      <div>
+        <input type='text' id='todo' />
+        <button onClick={clicked}>Click to push into array</button>
+      </div>
+      <ul>
+      {
+        ar.map((e,i)=><li>{e}<button onClick={()=>{deleteList(i)}}>Delete</button></li>)
+      }
+      </ul>
+    </div>
+  );
+}
+export default App;
+
+
+Implement a clock
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var d=new Date()
+  var [time,setTime]=useState();
+  var t=d.getHours()+' : '+ d.getMinutes()+' : '+ d.getSeconds()
+  setInterval(()=>{
+    setTime(t)
+  }, 1000)
+  return (
+    <div >
+     {time}
+    </div>
+  );
+}
+export default App;

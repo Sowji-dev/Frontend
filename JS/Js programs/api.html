@@ -1,206 +1,21 @@
 <html>
     <head>
         <style>
-         body{
-            text-align: center; font-family: sans-serif;
-        }  
-        label{margin: 5px;color: #f1600a;}
-        button,.subm{background: #f1600a;
-            margin: 15px;
-            font-size: 16px;
-            padding: 5px 15px;
-            border: none;}
-        /* #cardBody>div{    padding: 10px;
-            width: 200px;
-            border: 2px solid #f1600a;
-            display: inline-block;
-            color: #f1600a;
-            margin: 10px;
-        } */
-        img{border-radius: 25px;margin: 15px 50px;
-            height: 60px;
-            width: 60px;}
-            #dlt{text-align: right;padding: 0px 5px 10px 0px;  
-            }
-        #crud div{
-            border: 1px solid black;
-            width: 100px;
-            margin: auto;
-            padding: 5px;
-        }
-        #srch{margin:10px auto}
+         
         </style>
     </head>
     <body>
-        <h2  style=" color: #f1600a;">Add Contact Cards</h2>
-        <form name="contactcard">
-           <label>Name:</label> <input type="text" name='name' placeholder="enter name" required/>
-            <br/><br/>
-            <label>Age:</label> <input type="number" name='age' placeholder="enter age" required/>
-            <br/><br/>
-            <label>Gender:</label> 
-            <input type="radio" name="gen" value="Male" />Male
-            <input type="radio" name="gen" value="Female" />Female<br/><br/>
-            <label>Colors:</label> 
-            <input type="checkbox" name="color" value="Blue" />Blue
-            <input type="checkbox" name="color" value="Green" />Green
-            <input type="checkbox" name="color" value="Yellow" />Yellow
-            <input type="checkbox" name="color" value="Purple" />Purple
-            <input type="checkbox" name="color" value="Pink" />Pink
-            <input type="checkbox" name="color" value="Black" />Black<br/><br/>
-            <label>Upload photo:</label>
-            <input type="file" name="photo" placeholder="Enter Image URL" onchange="uploadimg(event)" required/><br/><br/>
-            <!-- <input type="submit" class="subm" value="Submit details"> -->
-            <button type="button" onclick="addCon(event)">Submit details</button>
-        </form>
-        <div id="fillform" style="color:red"></div>
-        <div id="crud">
-           <div id='sortCon' onclick="sortAlph()">Sort &#x2191;&#x2193;</div>
-           <input type="text" id='srch' onkeyup="searchcont(event)" placeholder="Search"/>
-        </div> 
-       <h4 id="cardBody"></h4> 
-     <script>
-      var ar=[],tempar=[]
-      j=0
-      document.getElementById('sortCon').style.display='none'
-      document.getElementById('srch').style.display='none'
-       function addCon(e){
-            e.preventDefault(); 
-            var ob={ }
-            ob.Name=document.contactcard.name.value;
-            ob.Age=document.contactcard.age.value;
-            ob.Gen=document.contactcard.gen.value;
-            arcolors=[]
-            document.contactcard.color.forEach(el => {
-               if(el.checked)
-                arcolors.push(el.defaultValue)
-            })
-            ob.color=arcolors;
-            ob.src=source;
-            source=''
-            var {Name,Age,Gen,color,src}=ob
-           
-           // if(Name && Age && Gen && color && src)
-                ar.push(ob)
-                genCards();
-                document.contactcard.reset()
+        <input type='date' id='date' onChange="changeDate()"/>
+        <script>
            
             
-       }     
-        function genCards(){
-            if(ar.length<1)
-                document.getElementById('sortCon').style.display='none'
-            else
-                document.getElementById('sortCon').style.display='block'
-            if(ar.length<1 && tempar.length<1)
-                document.getElementById('srch').style.display='none'
-            else
-                document.getElementById('srch').style.display='block'
-            console.log(ar)
-            document.getElementById('cardBody').innerHTML=''
-            ar.forEach(function(ob,i){
-                // console.log(ar[i].color)
-                card=document.createElement("div");
-                card.style.padding= "10px";
-                card.style.width="200px"
-                card.style.border="2px solid #eb5305"
-                card.style.display="inline-block"
-                card.style.margin="10px"
-                card.style.position="relative"
-                document.getElementById("cardBody").appendChild(card);
-                var dlt=document.createElement("div");
-                dlt.style.position="absolute"
-                dlt.style.top="10px"
-                dlt.style.right="10px"
-                dlt.innerHTML='x'
-                dlt.id='dlt'
-                card.appendChild(dlt)
-                dlt.onclick=function(){
-                    deleteDetails(i)
-                }
-                for(key in ob){
-                    if(key=="src"){
-                        imag=document.createElement("img");
-                        imag.alt="alter";
-                        card.prepend(imag)
-                        imag.src=ob[key]      
-                    }
-                    else{
-                        var div=document.createElement("div");
-                        div.innerHTML=key +" : "+ ob[key];
-                        card.appendChild(div)
-                    }
-                }
-                var edit=document.createElement("button");
-                edit.innerHTML='Edit'
-                edit.id='edit'
-                card.appendChild(edit)
-                edit.onclick=function(){
-                    editDetails(i)
-                }       
-            }) 
-         }
-           
-       var source=''
-       function uploadimg(e){
-          // console.dir(e.target)
-           var files=e.target.files[0]
-           var filereader=new FileReader();
-            filereader.readAsDataURL(files);
-           // console.dir(filereader)
-            filereader.onloadend=function(){
-                source=filereader.result.toString();
+            function changeDate(){
+                var r=document.getElementById('date').value
+                var d=new Date(r)
+                var day = d.getDay();
+                console.log(day)
             }
-       }
-
-       function deleteDetails(i){
-            //r=confirm('Are you sure yo want to delete this account')
-            r=confirm(`Are you sure yo want to delete ${ar[i].Name} account`)
-            if(r) {
-                ar.splice(i,1)
-                 genCards()
-            }
-       }
-       function editDetails(i){
-            document.contactcard.name.value=ar[i].Name;
-            document.contactcard.age.value=ar[i].Age
-            document.contactcard.gen.value=ar[i].Gen
-            document.contactcard.color.value=ar[i].color
-            ar[i].color.forEach(c=> {
-                document.contactcard.color.value=c 
-            })
-            console.log(document.contactcard.color)
-             ar.splice(i,1)
-       }   
-      function sortAlph(){
-        ar.sort(function(a,b){
-            if(a.Name<b.Name)
-                return -1
-            else 
-                return 1
-        })
-        genCards()
-      }
-      function searchcont(s){
-        // console.dir()
-        // console.log( str.startsWith('s.target.value'))
-            matchAr= ar.filter(function(e){
-                //console.log(e.Name)
-                if(e.Name.startsWith(s.target.value)){
-                    console.log("name is" +e.Name)
-                    return true
-                }
-                    
-            })
-            console.log(matchAr)
-            tempar=ar;
-            ar=matchAr
-            genCards();
-            ar=tempar
-            tempar=[]
-      }
-    
-    </script>
+        </script>
     </body>
 </html>
 
