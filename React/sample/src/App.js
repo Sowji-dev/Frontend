@@ -1,11 +1,12 @@
 import './App.css'
-import React from 'react';
-import { useState } from 'react';
+import CountProps from './Countprops'
 function App() {
   
   return (
-    <div >
-      
+    <div>
+      <div>Props Counter </div>
+      <CountProps v={10} i={10}></CountProps>
+      <CountProps v={5} i={5}></CountProps>
       </div>
   );
 }
