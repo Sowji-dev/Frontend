@@ -9,10 +9,13 @@ function CountProps(props){
         setC(c-props.v)
     }
     return(
-        <div>
-            <div>Count:{c}</div>
+        <div style={{border:`2px solid ${props.c}`, margin:'10px', padding:'10px'}}>
+            <div>Count:{c}</div><br/>
             <button onClick={incr}>Increment</button>
-            <button onClick={decr}>Increment</button>
+            &nbsp; &nbsp; &nbsp;
+            <button onClick={decr}>Decrement</button>
+            &nbsp; &nbsp; &nbsp;
+            <button onClick={()=>props.showCount(c)}>Show Count</button><br/>
         </div>
     )
 }
