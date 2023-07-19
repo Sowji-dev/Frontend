@@ -601,3 +601,38 @@ function App() {
   );
 }
 export default App;
+
+import './App.css'
+import React from 'react';
+import { useState } from 'react';
+function App() {
+  var [c,setC]=useState(0);
+  var t,r=0;
+  function startClock(){
+   clearInterval(t)
+    r=0
+    t=setInterval(()=>{
+      r=r+1
+      setC(r)
+      console.log(c)
+    },1000)
+  }
+  function stopClock(){
+    console.log('stop')
+    clearInterval(t) 
+    r=0;setC(0) 
+  }
+  function pauseClock(){
+    clearInterval(t)
+  }
+  return (
+    <div >
+     <div>{c}</div>
+     <button onClick={startClock}>Start</button>
+     <button  onClick={stopClock}>Stop </button>
+     <button  onClick={pauseClock}>Pause</button>
+
+    </div>
+  );
+}
+export default App;
