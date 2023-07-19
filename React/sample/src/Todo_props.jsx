@@ -18,7 +18,6 @@ function TodoProps(props){
                     </div>
                 )
             }
-            
         </div>
     )
 }
