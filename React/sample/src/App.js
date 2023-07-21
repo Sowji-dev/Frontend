@@ -31,6 +31,7 @@ function App() {
       paid:'false'
     });
     setAr([...ar])
+    document.getElementById('mytask').value=''
   }
   function done(i){
     ar[i].paid=true
@@ -43,9 +44,24 @@ function App() {
   }
   return (
     <div  className="todo">
+       <input type='text' id='mytask' placeholder="Enter task"/>
+        <button onClick={()=>{addTask(document.getElementById('mytask').value)}}>Add task</button>
       <h2>TODO LIST</h2>
-      <TodoProps ar={ar} addTask={addTask} done={done} clear={clear}></TodoProps>
+      {
+        ar.map((e,i)=>
+        <div>
+          <TodoProps e={e} addTask={addTask} done={done} clear={clear} i={i}></TodoProps>
+        </div>
+        )
+      }
+     
       </div>
   );
+  // return (
+  //   <div  className="todo">
+  //     <h2>TODO LIST</h2>
+  //     <TodoProps ar={ar} addTask={addTask} done={done} clear={clear}></TodoProps>
+  //     </div>
+  // );
 }
 export default App;
