@@ -1,20 +1,46 @@
-.card{
+.likes{
+  background-color: rgb(10 18 232 / 59%);
+  float: left;
   padding: 10px;
-  width: 200px;
-  border: 2px solid rgb(235, 83, 5);
-  display: inline-block;
-  margin: 10px;
-  position: relative;
+    margin: 15px;
+    color: white
 }
-#dlt{
-    position: absolute;
-    top: 10px;
-    right: 10px;
+.dislikes{
+  background-color: rgb(235 106 30);
+  float: right;
+  padding: 10px;
+    margin: 15px;
+    color: white
 }
-body {
-  text-align: center;
-  font-family: sans-serif;
+.blogs{
+  padding: 30px;
+  width: 40%;
+    margin: 25px auto;
+    border: 2px solid #c3bcbc;
+    text-align: center;
 }
-.orange{
-  color: #f1600a;
+.labels{
+  display: inline-flex;
+  width: 80px;
+  margin: 10px 0;
+}
+.addpost{
+  background: gray;
+  color: white;
+  border: none;
+  padding: 10px;
+  margin: 15px 0;
+}
+.count{
+  display: flow-root;
+}
+button{
+  color: white;
+    font-weight: bold;
+}
+.blogborder{
+  border: 2px solid #e2dcdc;
+  margin: 25px 0;
+  border-radius: 30px;
+  padding: 0 10px;
 }
