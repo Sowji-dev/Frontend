@@ -7,7 +7,6 @@ function App() {
   var [data,setData]=useState([])
   var [scoreAr,setScoreAr]=useState([])
   var [mrk,setmrk]=useState(0)
-
   useEffect(()=>{
    axios.get('https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple').
    then(res=>{
@@ -17,17 +16,15 @@ function App() {
   data.forEach((e,i)=>{
     scoreAr.push(false)
   })
-  function corctCount(i,b){
-     scoreAr[i]=b==true ? true : false;
-     mrk=scoreAr.reduce((a,b)=>{
-      return a+b
-     },0)
-     setmrk(mrk)
-     setScoreAr([...scoreAr])
-    //console.log(mrk)
-   
-  }
-  
+  var corctCount=React.useCallback((i,b)=>{
+    scoreAr[i]=b==true ? true : false;
+    mrk=scoreAr.reduce((a,b)=>{
+     return a+b
+    },0)
+    setmrk(mrk)
+    setScoreAr([...scoreAr])
+  },[])
+ 
   return (
     <div >
       Correct Answers: <h2><b>{mrk}/{data.length}</b></h2><br/>
@@ -36,7 +33,6 @@ function App() {
           <Question d={e} key={i} pos={i} corctCount={corctCount}></Question>
         )
       }
-        
       </div>
   );
 }
