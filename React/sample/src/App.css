@@ -48,6 +48,7 @@ button{
   margin: 18px auto 5px;
   display: block;
   letter-spacing: 2px;
+  cursor: pointer;
 }
 .tourhead{
   font-weight: bold;
@@ -71,4 +72,10 @@ button{
     font-weight: bolder;
     margin-top: 150px;
     color: #49a6e9;
+}
+.refr{
+    background-color: #5ba7de;
+    border: none;
+    color: white;
+    font-weight: bold;
 }

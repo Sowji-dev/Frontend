@@ -15,8 +15,6 @@ function Trips(props) {
     setRm(true)
     setRl(false)
   }
-
-  console.log(props)
   return (
     <div  className='boxbord'>
       <div className='imag'><img src={t.image} /></div>
@@ -24,7 +22,7 @@ function Trips(props) {
         <div className='tourhead'>{t.name}
           <span>${t.price}</span>
         </div>
-        <div class='tourtext'>
+        <div className='tourtext'>
             {
               rl ? t.info : (t.info.substring(0,200) + '...' )
             }
