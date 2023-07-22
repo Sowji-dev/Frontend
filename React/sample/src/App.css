@@ -66,3 +66,9 @@ button{
   color: #7a7676;
   line-height: 25px;
 }
+.load{
+  font-size: 40px;
+    font-weight: bolder;
+    margin-top: 150px;
+    color: #49a6e9;
+}

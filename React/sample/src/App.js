@@ -5,9 +5,11 @@ import { useEffect } from 'react';
 import axios from 'axios';
 function App() {
  var [trips,setTrips]=useState([])
+ var load='Loading'
   useEffect(()=>{
     axios.get('https://course-api.com/react-tours-project').then((res)=>{
-      setTrips(res.data)
+      setTrips(res.data);
+      load=''
     })
   },[])
   function remov(i){
@@ -16,11 +18,17 @@ function App() {
   }
   return (
     <div className='box'>
-      <div className='tours'>Our Tours<div></div></div>
+      
       {
-        trips.map((e,i)=>
-          <div key={i}><Trips t={e} i={i} remov={remov}></Trips></div>
-        )
+        trips.length!=0?
+          <div><div className='tours'>Our Tours<div></div></div>
+          {
+            trips.map((e,i)=>
+              <div key={i}><Trips t={e} i={i} remov={remov}></Trips></div>
+            )
+          }</div>
+        :
+        <div className='load'>{load}...</div>
       }
       </div>
   );
