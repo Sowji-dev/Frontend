@@ -44,7 +44,6 @@ function EmpUseFormik() {
         <input type='email' name='email' 
             onChange={formik.handleChange} onBlur={formik.handleBlur} placeholder='Enter email' />
              {formik.touched.email && formik.errors.email}
-        <button type='submit' >Submit form</button>
       </form>
     </div>
   )

@@ -12,3 +12,7 @@ input,button[type='submit']{
   display: block;
   margin: 5px auto;
 }
+input[type='radio']{
+  display: inline-flex;
+  margin-left: 15px;
+}

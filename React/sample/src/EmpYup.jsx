@@ -10,16 +10,19 @@ function Emp() {
             fname:'',
             lname:'',
             age:'',
-            email:''
+            email:'',
+            gen:''
         },
         validationSchema: Yup.object({
             fname: Yup.string()
               .min(5, 'min 5 characters ')
-              .required('Required'),
-              age: Yup.number()
+              .required('fname Required'),
+            age: Yup.number()
               .max(70, 'age should be less than 70')
-              .required('Required'),
-            email: Yup.string().email('Invalid email address').required('Required'),
+              .required('age Required'),
+            email: Yup.string().email('Invalid email address').required('email Required'),
+            gen:Yup.string()
+              .required('gender Required ')
           }),
         onSubmit:(v)=>{
             console.log('form submited')
@@ -43,6 +46,13 @@ function Emp() {
         <input type='email' name='email' 
             onChange={formik.handleChange} onBlur={formik.handleBlur} placeholder='Enter email' />
              {formik.touched.email && formik.errors.email}
+         <div>
+            Gender:
+            <input type='radio' value='male' name='gen' onChange={formik.handleChange}/>Male
+            <input type='radio' value='female' name='gen' onChange={formik.handleChange}/>Female
+            <input type='radio' value='other' name='gen' onChange={formik.handleChange}/>Other
+            <div>{formik.errors.gen}</div>
+         </div>
         <button type='submit' >Submit form</button>
       </form>
     </div>
