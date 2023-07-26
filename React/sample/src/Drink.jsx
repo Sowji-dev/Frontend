@@ -6,7 +6,7 @@ function Drink(props) {
     var ShowDrink=false
     
   return (
-    <div className='card container' >
+    <div className='card ' >
         <div><img src={props.data.strDrinkThumb}/></div>
         <h4>{props.data.strDrink}</h4> 
         <div>{props.data.strGlass}</div>

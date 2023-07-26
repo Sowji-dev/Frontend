@@ -7,11 +7,13 @@ function App() {
   var [data,setData]=useState([]);
   var [temp,setTemp]=useState([]);
   var [nosearch,setNosearch]=useState('')
+  var [showload,setShowLoad]=useState(true)
   useEffect(()=>{
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=').then(res=>{
       //console.log(res.data.drinks)
       setTemp([...res.data.drinks])
       setData([...res.data.drinks])
+      setShowLoad(false)
     })
   },[])
   
@@ -48,16 +50,22 @@ function App() {
   })
   return (
     <div >
-      <h4>Cocktails</h4>
-      <div className='search'>
-        <input type='text' id='search' onKeyUp={search}/>
-      </div>
-      <div>{nosearch}</div>
-      {
-        data.map((e,i)=>
-         <Drink i={i} data={e} showDrink={showDrink}></Drink>
-        )
-      }
+      {showload?
+        <img src='https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921'/>
+        :
+          <div>
+            <h4>Cocktails</h4>
+            <div className='search'>
+              <input type='text' id='search' onKeyUp={search}/>
+            </div>
+            <div>{nosearch}</div>
+            {
+              data.map((e,i)=>
+              <Drink i={i} data={e} showDrink={showDrink}></Drink>
+              )
+            }
+          </div>        
+          }
     </div>
   );
 }
