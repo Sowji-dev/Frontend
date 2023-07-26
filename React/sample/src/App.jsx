@@ -6,20 +6,19 @@ function App() {
   var [ar,setAr]=useState([])
   useEffect(()=>{
     axios.get('https://hn.algolia.com/api/v1/search?').then(res=>{
-      console.log(res.data.hits)
-      setAr([...res.data.hits])
+      console.log(res.data)
+      //setAr([...res.data])
     })
   },[])
   return (
     <div >
       <h3>News App</h3>
+      {/* {ar.length}
       {
         ar.map((e,i)=>
-          <div>
-             <News d={e}></News>
-          </div>
+             <News key={i} ar={e}></News>   
         )
-      }
+      } */}
       </div>
   );
 }
