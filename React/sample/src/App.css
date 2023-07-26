@@ -1,20 +1,13 @@
-.card{
-  padding: 10px;
-  width: 200px;
-  border: 2px solid rgb(235, 83, 5);
-  display: inline-block;
-  margin: 10px;
-  position: relative;
+label,input{
+  display: block;
+    text-align: left;
+    width: 100%;
+    margin-bottom: 0;
 }
-#dlt{
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
+form{width:30%;margin:auto}
 body {
   text-align: center;
   font-family: sans-serif;
 }
-.orange{
-  color: #f1600a;
-}
+.red{color:red}
+.green{color:green}
