@@ -10,6 +10,4 @@ body {
   font-family: sans-serif;
   margin: 10px;
 }
-.orange{
-  color: #f1600a;
-}
+.modal-body{display: flex;}

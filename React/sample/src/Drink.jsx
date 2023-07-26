@@ -12,26 +12,31 @@ function Drink(props) {
         <div>{props.data.strGlass}</div>
         <div>{props.data.strAlcoholic}</div>
         <div class="">
-        <button type="button" class="" 
-          data-toggle="modal"  data-target={'#'+props.i+props.data.strDrink}>Open Modal</button>
+        <button type="button" class="btn-success" 
+          data-toggle="modal"  data-target={'#'+props.i+props.data.strDrink}>Details</button>
 
           <div class="modal fade" id={props.i+props.data.strDrink} role="dialog">
             <div class="modal-dialog">
         
               <div class="modal-content">
-                <div class="modal-header">
+                
                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                  <img style={{width:'500px'}} src={props.data.strDrinkThumb}/>
-                </div>
+                  
                 <div class="modal-body">
-                  {/* <div>Name: {props.data.strDrink}</div>
-                  <div>Category: {props.data.strCategory}</div>
-                  <div>Category: {props.data.strCategory}</div>
-                  <div>Category: {props.data.strCategory}</div> */}
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
+                  <img style={{width:'300px'}} src={props.data.strDrinkThumb}/>
+                  <div>
+                    <div>Name: {props.data.strDrink}</div>
+                    <div>Category: {props.data.strCategory}</div>
+                    <div>Info: {props.data.strAlcoholic}</div>
+                    <div>Glass: {props.data.strGlass}</div>
+                    <div>Instructons : {props.data.strInstructions}</div>
+                  </div>
+                  </div>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+               
+                  
+                
+                
               </div>
           
             </div>
