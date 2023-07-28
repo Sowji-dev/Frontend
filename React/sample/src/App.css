@@ -1,20 +1,12 @@
-.card{
+button{
+  color:white;
+  background-color: rgb(67, 134, 221);
+  border:none;
+  width: 100px;
   padding: 10px;
-  width: 200px;
-  border: 2px solid rgb(235, 83, 5);
-  display: inline-block;
-  margin: 10px;
-  position: relative;
-}
-#dlt{
-    position: absolute;
-    top: 10px;
-    right: 10px;
+  margin:10px
 }
 body {
   text-align: center;
   font-family: sans-serif;
-}
-.orange{
-  color: #f1600a;
 }
