@@ -14,7 +14,7 @@ function App() {
           .required('Please fill name field.'),
         pwd: Yup.string()
          // .min(6, 'pwd should be max 6 chars')
-         .matches(/^\w+$/,
+         .matches(/^\w+[- ?!@#$%^&*\/\\]/,
              'Pattern not matching')
           
           // .matches(/(?=.*[0-9])(?=.*[- ?!@#$%^&*\/\\])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9- ?!@#$%^&*\/\\]/,
