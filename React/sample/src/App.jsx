@@ -42,9 +42,7 @@ function App() {
         <input type='password' name='pwd' placeholder='Enter Password'  {...formik.getFieldProps('pwd')}/>
         <div className='red'>{formik.errors.pwd}</div>
         <div  className='green'>{!formik.errors.pwd && formik.touched.pwd ? <div >Valid Password</div>:''}</div><br/>
-
-
-        <button type='submit'>Save</button>
+         <button type='submit'>Save</button>
       </form>
       </div>
   );
