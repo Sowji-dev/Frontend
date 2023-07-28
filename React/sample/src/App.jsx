@@ -14,19 +14,16 @@ function App() {
           .required('Please fill name field.'),
         pwd: Yup.string()
          // .min(6, 'pwd should be max 6 chars')
-        //  .matches(/^\w+[- ?!@#$%^&*\/\\]$/,
-        //      'Pattern not matching')
-          
-          .matches(/(?=.*[0-9])(?=.*[- ?!@#$%^&*\/\\])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9- ?!@#$%^&*\/\\]/,
+          .matches(/(?=.*[0-9])(?=.*[- ?!@#$%^&*\/\\])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9- ?!@#$%^&*\/\\]{8}/,
              'Password must have 8 characters with Atleast 1 UPPERCASE, 1 lowercase, 1 special and 1 numeric character')
-          .required('Please fill password field.')
+         .required('Please fill password field.')
       }),
       onSubmit:(values=>{
-        console.log('hello')
+        //console.log('hello')
        
       })
   })
-  console.log(formik.touched)
+  //console.log(formik.touched)
   function validateForm(){
 
   }
@@ -43,7 +40,8 @@ function App() {
 
         <label>Password</label>
         <input type='password' name='pwd' placeholder='Enter Password'  {...formik.getFieldProps('pwd')}/>
-        <div className='red'>{formik.errors.pwd}</div><br/>
+        <div className='red'>{formik.errors.pwd}</div>
+        <div  className='green'>{!formik.errors.pwd && formik.touched.pwd ? <div >Valid Password</div>:''}</div><br/>
 
 
         <button type='submit'>Save</button>
