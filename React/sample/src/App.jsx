@@ -2,8 +2,6 @@ import './App.css'
 import React, { useState,useRef } from 'react';
 import ShowTasks from './ShowTasks';
 function App() {
-  var refTask=useRef('')
-  var refStatus=useRef('')
   var [ar,setAr]=useState([
     {
         title:'car wash',
@@ -18,21 +16,37 @@ function App() {
         status:'incomplete'
     }
 ])
-function addTask(){
-  ar.push({
-    title:refTask.current.value,
-    status:refStatus.current.value
-  })
-  setAr([...ar])
-  console.log(ar)
+var [errmsg,setErrmsg]=useState('');
+function addTask(e){
+  e.preventDefault()
+  if(document.myform.taskname && document.myform.status.value ){
+    ar.push({
+      title: document.myform.taskname.value,
+      status: document.myform.status.value
+    });
+    setAr([...ar]);
+    document.myform.reset();
+    setErrmsg('')
+  }
+  else{
+     setErrmsg('Please fill task and status')
+  }
+  console.dir(document.myform)
 }
   return (
     <div >
-      <input type='text' ref={refTask} placeholder='Enter task'/>
-      <input type='text' ref={refStatus} placeholder='Enter status'/>
-      Status:
-      <inpu type='radio' name=''/>
-      <button onClick={addTask}>Add Task</button>
+      <br/>
+      <form name='myform'>
+          Task :  &nbsp;
+          <input type='text' name='taskname' placeholder='Enter task'/><br/><br/>
+          Status:  &nbsp;
+          <input type='radio'  name='status' value='complete'/> &nbsp;Completed &nbsp; &nbsp; &nbsp;
+          <input type='radio' name='status'  value='incomplete'/> &nbsp; Not Completed<br/><br/>      
+          <button onClick={addTask}>Add Task</button>
+          <div>{errmsg}</div>
+          <br/>
+      </form>
+     
       <ShowTasks ar={ar}></ShowTasks>
       </div>
   );
