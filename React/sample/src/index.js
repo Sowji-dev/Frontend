@@ -7,25 +7,33 @@ import {  RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MyForm from './MyForm';
 import Todo from './Todo';
 import Countries from './Countries';
+import Todolist from './TodoList';
+import CountryDetails from './CountryDetails';
 var router=createBrowserRouter([
     {
         path:'/',
         element:<App></App>,
         children:[
-            {
-                path:'/form',
-                element:<MyForm></MyForm>
-            },
+            
             {
                 path:'/todo',
-                element:<Todo></Todo>
+                element:<Todolist></Todolist>
             },
             {
                 path:'/countries',
                 element:<Countries></Countries>
+            },
+            {
+                path:'/countries/details',
+                element:<CountryDetails></CountryDetails>
             }
         ]
+    },
+    {
+        path:'/form',
+        element:<MyForm></MyForm>
     }
+    
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

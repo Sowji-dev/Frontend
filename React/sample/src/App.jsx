@@ -6,9 +6,12 @@ function App() {
   return (
     <div >
       <h4>App comp</h4>
-      <Link to='/form'>Form</Link> &nbsp;&nbsp;&nbsp;
-      <Link to='/todo'>Todo list</Link>&nbsp;&nbsp;&nbsp;
-      <Link to='/countries'>Countries</Link>&nbsp;&nbsp;&nbsp;
+      <h3>
+          <Link to='/form'>Form</Link> &nbsp;&nbsp;&nbsp;
+          <Link to='/todo'>Todo list</Link>&nbsp;&nbsp;&nbsp;
+          <Link to='/countries'>Countries</Link>&nbsp;&nbsp;&nbsp;
+      </h3>
+      
       <Outlet></Outlet>
     </div>
   );
