@@ -8,16 +8,16 @@ var router=createBrowserRouter([
     {
         path:'/',
         element:<App></App>,
-        children:[
-            {
-                path:'/services',
-                element:<Services></Services>
-            },
-            {
-                path:'/products',
-                element:<Products></Products>
-            }
-        ]
+        // children:[
+        //     {
+        //         path:'/services',
+        //         element:<Services></Services>
+        //     },
+        //     {
+        //         path:'/products',
+        //         element:<Products></Products>
+        //     }
+        // ]
     }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
