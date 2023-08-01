@@ -5,7 +5,6 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {  RouterProvider, createBrowserRouter } from 'react-router-dom';
 import MyForm from './MyForm';
-import Todo from './Todo';
 import Countries from './Countries';
 import Todolist from './TodoList';
 import CountryDetails from './CountryDetails';
@@ -24,9 +23,10 @@ var router=createBrowserRouter([
                 element:<Countries></Countries>
             },
             {
-                path:'/countries/details',
+                path:'details/:cid',
                 element:<CountryDetails></CountryDetails>
             }
+            
         ]
     },
     {

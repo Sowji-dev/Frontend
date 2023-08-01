@@ -5,22 +5,20 @@ import axios from 'axios'
 import { Outlet } from 'react-router';
 import { Link } from 'react-router-dom';
 
-function Countries() { var [cntry,setCntry]=useState([]);
+function Countries() { 
+  var [cntry,setCntry]=useState([]);
   useEffect(()=>{
-      console.log('Countries use effect with empty DA')
-      axios.get('https://restcountries.com/v3/all').then((res)=>{
+      axios.get('https://restcountries.com/v2/all').then((res)=>{
       setCntry(res.data)
+      console.log(res)
       })
   },[])
-  useEffect(()=>{
-      console.log('Countries use effect with no DA')
-  })
 return (
   <div  className='box'>
     {
       cntry.map((e,i)=>
-          <div>
-            <Link to='/details'>{e.name.common}</Link> 
+          <div key={i}>
+            <Link to={'/details/'+e.alpha2Code}>{e.name}</Link> 
           </div>
       )
     }
