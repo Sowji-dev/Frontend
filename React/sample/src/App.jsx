@@ -5,7 +5,7 @@ import store from './Store/Store';
 import Counter from './Counter';
 import Todo from './Todo';
 function App() {
-  //console.log('app :',store)
+  console.log('app :',store)
   return (
     <div >
       <Provider store={store}>

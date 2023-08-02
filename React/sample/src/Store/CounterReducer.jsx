@@ -2,7 +2,7 @@ var InitialValues={
     count:5
 }
 function CounterReducer(state=InitialValues,action){
-   // console.log(state)
+    console.log('CounterReducer')
     if(action.type=="inc"){
         return {...state,count:state.count+1}
     }
