@@ -20,10 +20,12 @@ function ShowTasks(props) {
             return <div key={i} style={{background: e.status ? '#88de88': 'pink'  ,marginBottom:'15px',padding:'10px'}}>
                 {e.title}&nbsp; &nbsp; &nbsp;
                     <button onClick={()=>{
-                      props.doneTask(i)
-                    }}>Done</button>&nbsp; &nbsp; &nbsp;
+                      props.toggleTask(e)
+                    }}>
+                     {e.status ? 'Undo' : 'Done'}
+                      </button>&nbsp; &nbsp; &nbsp;
                     <button onClick={()=>{
-                      props.deleteTask(i)
+                      props.deleteTask(e)
                     }}>Delete</button>
               
               </div>

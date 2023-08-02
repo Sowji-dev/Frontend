@@ -41,12 +41,25 @@ function addTask(e){
      setErrmsg('Please fill task and status')
   }
 }
-function doneTask(i){
-    ar[i].status=true;
+function toggleTask(item){
+  var tog_ind
+  ar.filter((e,i)=>{
+    if(e.title==item.title){
+      tog_ind = i
+    }
+  })
+  console.log('tog_ind is',tog_ind)
+    ar[tog_ind].status=!ar[tog_ind].status;
     setAr([...ar])
 }
-function deleteTask(i){
-  ar.splice(i,1)
+function deleteTask(item){
+  var del_index;
+  ar.filter((e,i)=>{
+    if(e.title==item.title){
+      del_index= i
+    }
+  })
+  ar.splice(del_index,1)
   setAr([...ar])
 }
 useEffect(()=>{
@@ -73,7 +86,7 @@ function changeRadio(){
           <br/>
       </form>
      
-      <ShowTasks ar={ar} doneTask={doneTask} deleteTask={deleteTask} showOnly={showOnly} ></ShowTasks>
+      <ShowTasks ar={ar} toggleTask={toggleTask} deleteTask={deleteTask} showOnly={showOnly} ></ShowTasks>
       </div>
   );
 }
