@@ -6,10 +6,10 @@ function Services() {
     <div className='box'>
     <h4> Our Services </h4>
     <ul>
-        <Link to='/services/reactspa'> 
+        <Link to='/reactspa'> 
             <li>Single Page Web Application Development using React</li>
         </Link>
-        <Link to='/services/angspa'> 
+        <Link to='/angspa'> 
             <li>Single Page Web Application Development using Angular</li>
         </Link>
     </ul>

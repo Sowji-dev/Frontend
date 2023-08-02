@@ -39,23 +39,21 @@ var router=createBrowserRouter([
                         element:<CountryInfo></CountryInfo>
                     }
                 ]
+            },
+            {
+                path:'/reactspa',
+                element:<ReactSpa></ReactSpa>
+            },
+            {
+                path:'/angspa',
+                element:<AngularSpa></AngularSpa>
             }
         ]
         
     },
     {
         path:'/services',
-        element:<Services></Services>,
-        children:[
-            {
-                path:'/services/reactspa',
-                element:<ReactSpa></ReactSpa>
-            },
-            {
-                path:'/services/angspa',
-                element:<AngularSpa></AngularSpa>
-            }
-        ]
+        element:<Services></Services>
     }
 ])
 const root = ReactDOM.createRoot(document.getElementById('root'));
