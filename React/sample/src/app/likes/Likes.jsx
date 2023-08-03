@@ -4,6 +4,7 @@ import { incLike, incdisLike } from './likeSlice'
 function Likes() {
     var {like,dislike}=useSelector(state=>state.likeSlice)
     const dispatch=useDispatch()
+    console.log(like,dislike)
   return (
     <div className='box'>
       <h4 className=''>

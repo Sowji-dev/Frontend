@@ -9,6 +9,8 @@ body {
   text-align: center;
   font-family: sans-serif;
 }
+.rating i{font-size:30px; padding-left: 4px;}
+.rating{display: inline;  }
 .boxBord{border: 5px solid #129722;
   width: 50%;
   background: #e5f6e5;
@@ -104,4 +106,17 @@ span.frt{
   color:#716e6e;
   font-size: 12px;
   font-family: cursive;
+}
+.darktheme{
+  background-color: rgb(40, 37, 37);
+  color: white;
+}
+.lighttheme{
+  background-color: aliceblue;
+}
+.toglbtn{
+  font-size: 30px;
+  position: absolute;
+    right: 5%;
+    top: 25px;
 }
