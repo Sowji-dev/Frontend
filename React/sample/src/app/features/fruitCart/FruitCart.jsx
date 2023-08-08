@@ -3,7 +3,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import { inc, dec, resetCart } from './fruitCartSlice'
 function FruitCart() {
     var {fruits}=useSelector(state=>state.fruitCartSlice)
-    console.log(fruits)
+   // console.log(fruits)
     const dispatch=useDispatch()
     var tot=0,items=0;
     fruits.forEach((e,i)=>{
