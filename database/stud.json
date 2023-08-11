@@ -1,29 +1,24 @@
 {
   "stud": [
     {
-      "fname": "A",
-      "addr": "aa",
-      "id": 1
-    },
-    {
-      "fname": "B",
-      "addr": "aa",
-      "id": 2
-    },
-    {
       "fname": "C",
       "addr": "aa",
       "id": 3
     },
     {
-      "fname": "D",
-      "addr": "edf",
-      "id": 4
+      "fname": "A",
+      "addr": "ds",
+      "id": 6
     },
     {
-      "fname": "newname",
-      "addr": "newaddr",
-      "id": 5
+      "fname": "R",
+      "addr": "as",
+      "id": 7
+    },
+    {
+      "fname": "sad",
+      "addr": "sa",
+      "id": 8
     }
   ]
 }

@@ -11,13 +11,6 @@ function EditStudent(props) {
     useEffect(()=>{
         setPropsData({...props.selectedStd})
     },[props])
-    function updateStd(){
-          editStd({...propsdata}).then(res=>{
-            console.log(res)
-            res.data && lazyGetStudnts();
-            res.error && console.log('something went wrong')
-        });
-    }
   return (
     <div className='box'>
         <h3>Edit form</h3>
@@ -63,7 +56,7 @@ function EditStudent(props) {
                 <input type='text' name='addr' value={propsdata.addr}
                     onChange={(e) => setPropsData({...propsdata, addr:e.target.value})}  onBlur={formik.handleBlur} placeholder='Enter addr' />
                     {formik.touched.addr && formik.errors.addr}&nbsp;&nbsp;
-                <button type='submit' onClick={updateStd}>Update Student</button>
+                <button type='submit' >Update Student</button>
                 </form>
             
                 
