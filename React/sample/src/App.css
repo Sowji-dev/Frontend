@@ -143,3 +143,7 @@ html, body {
   margin: auto;
   background-color: #8f9193;
 }
+.navbar a {
+  color: #115086;
+  text-decoration: none;
+}

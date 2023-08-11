@@ -13,6 +13,4 @@ export const productsApi = createApi({
   })
 })
 console.dir(productsApi)
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
 export const { useGetProductDetailsQuery, useGetProductsQuery } = productsApi

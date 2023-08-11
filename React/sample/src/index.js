@@ -12,6 +12,8 @@ import LikeSlice from './app/features/likes/likeSlice';
 import Likes from './app/features/likes/Likes';
 import Rating from './app/features/rating/Rating';
 import Countries from './app/features/countries/Countries';
+import GetStudents from './app/features/students/GetStudents';
+
 var router=createBrowserRouter([
     {
         path:'/',
@@ -37,6 +39,10 @@ var router=createBrowserRouter([
             {
                 path:'/countries',
                 element: <Countries></Countries>
+            },
+            {
+                path:'/students',
+                element:<GetStudents></GetStudents>
             }
         ]
     }
