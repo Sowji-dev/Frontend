@@ -15,6 +15,18 @@ body {
   text-align: center;
   font-family: sans-serif;
 }
-.orange{
-  color: #f1600a;
+.bg-orange{
+  background-color: #f1600a;
+}
+.bg-orange .active>.nav-link{
+  color: rgba(f,f,f,.9) !important;
+}
+.bg-orange .nav-link{
+  color: rgba(f,f,f,.5) !important;
+}
+.box{
+  border:2px solid gray
+}
+.fields{
+  display: block;
 }
