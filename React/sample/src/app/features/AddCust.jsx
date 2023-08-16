@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {  useAddCustDetailsMutation } from '../../services/addCust';
+import { useAddCustDetailsMutation } from '../services/addCust';
 function AddCust() {
   var [addfn]=useAddCustDetailsMutation()
   return (
     <div className='box w-50 mx-auto p-3'>
-    
-      AddCust
+      <h4>Add New Customer</h4>
       <Formik
        initialValues={{ fullname: '', phone: '', place:'',feedback:'',email:'' }}
        validationSchema={ Yup.object({
@@ -27,43 +26,47 @@ function AddCust() {
           .min(4, 'min 4 characters ')
           .required('Required'),
       })}
-       onSubmit={(values, { setSubmitting }) => {
-        console.log(values)
-        addfn(values).then(res=>{
+       onSubmit={ (values,x) => {
+        console.log(x)
+        addfn(values).then((res)=>{
           console.log(res)
+          if(res.data){ 
+            alert('Added Successfully')
+            x.resetForm()
+          }
+          if(res.error) 
+          alert('something went wrong...')
         })
-        //  setTimeout(() => {
-        //    alert(JSON.stringify(values, null, 2));
-        //    setSubmitting(false);
-        //  }, 400);
+        //alert(status)
        }}
      >
-     
-        <Form>
+        <Form >
           <div className='fields'>
               <label>Name: </label>
-              <Field name="fullname" />
-              <ErrorMessage name="fullname" />
+              <Field name="fullname"  placeholder='Enter Name'/>
+              <br/>
+              <div className='errormsg'><ErrorMessage name="fullname" /> </div>
           </div>
           <div className='fields'>
-              <label>phone: </label>
-              <Field  name="phone" />
-              <ErrorMessage name="phone" />
+              <label>Phone: </label>
+              <Field  name="phone"   placeholder='Enter phone'/> <br/>
+              <div className='errormsg'> <ErrorMessage name="phone" /> </div>
           </div>
           <div className='fields'>
               <label>Email: </label>
-              <Field type="email" name="email" />
-              <ErrorMessage name="email" />
+              <Field type="email" name="email"   placeholder='Enter email'/> <br/>
+              <div className='errormsg'> <ErrorMessage name="email" /> </div>
           </div>
           <div className='fields'>
               <label>Place: </label>
-              <Field name="place" />
-              <ErrorMessage name="place" />
+              <Field name="place"   placeholder='Enter place'/> <br/>
+              <div className='errormsg'><ErrorMessage name="place" /> </div>
            </div>
           <div className='fields'>
               <label>Feedback: </label>
-              <Field  name="feedback" as="textarea" /> 
-              <ErrorMessage name="feedback" />
+              <Field  name="feedback" as="textarea"   placeholder='Enter feedback' />  <br/>
+              <div className='errormsg'><ErrorMessage  name="feedback" /></div>
+              
            </div>          
            <button type="submit" >
              Submit

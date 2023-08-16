@@ -19,14 +19,52 @@ body {
   background-color: #f1600a;
 }
 .bg-orange .active>.nav-link{
-  color: rgba(f,f,f,.9) !important;
+  border-bottom:2px solid white
 }
-.bg-orange .nav-link{
-  color: rgba(f,f,f,.5) !important;
-}
+
 .box{
   border:2px solid gray
 }
 .fields{
   display: block;
+    margin: 15px;
+    font-size: 15px;
+}
+.navbar-nav>li>a {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.fields label{
+  width: 110px;
+  text-align: left
+}
+textarea, input{
+  min-width: 220px;
+  padding: 5px;
+}
+.errormsg{
+  color:red
+}
+.clist{
+  padding: 10px;
+  margin: 30px;
+}
+.cname{
+  cursor: pointer;
+}
+.cname~button{
+  margin-bottom: 12px;
+  border-radius: 15px;
+  padding: 2px 10px;
+  font-weight: bold;
+  background: white;
+  border: 2px solid #f1600a;
+  color: #f1600a;
+}
+.feedback{
+  display: inline-flex;
+}
+.feedback button{
+  margin: auto;
+  height: 40px;
 }

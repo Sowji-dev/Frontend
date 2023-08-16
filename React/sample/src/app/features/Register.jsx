@@ -1,11 +1,11 @@
 import React from 'react'
 
-function CustList() {
+function Register() {
   return (
     <div>
-      CustList
+      Register
     </div>
   )
 }
 
-export default CustList
+export default Register

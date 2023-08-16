@@ -3,13 +3,43 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const custList = createApi({
   reducerPath: 'custList',
-  baseQuery: fetchBaseQuery({ baseUrl: 'https://pokeapi.co/api/v2/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/details' }),
   endpoints: (builder) => ({
     getCustDetails: builder.query({
-        query: (name) => `pokemon/${name}`,
-      }),
+        query: () => ``,
+    }),
+    deleteStudent: builder.mutation({
+      query(id) {
+        return {
+          url: `/${id}`,
+          method: 'DELETE',
+        }
+      },
+    
+  }),
+    updateCust: builder.mutation({
+      query(data) {
+        console.log(data)
+     return {
+          url: `/${data.id}`,
+          method: 'PUT',
+          body:data,
+        }
+      },
+    }),
+    addfeedback :builder.mutation({
+      query(data) {
+        console.log(data)
+     return {
+          url: `/${data.id}`,
+          method: 'PUT',
+          body:data,
+        }
+      },
+    }),
 
   }),
 })
 
-export const { useGetCustDetailsQuery } = custList
+export const { useGetCustDetailsQuery ,useLazyGetCustDetailsQuery, useUpdateCustMutation,
+useDeleteStudentMutation,useAddfeedbackMutation} = custList

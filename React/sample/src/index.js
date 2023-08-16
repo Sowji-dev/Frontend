@@ -7,12 +7,14 @@ import {
     createBrowserRouter,
     RouterProvider,} from "react-router-dom";
 import Home from './app/features/pages/Home';
-import AddCust from './app/features/addCust/AddCust';
-import CustList from './app/features/custList/CustList';
+import AddCust from './app/features/AddCust';
+import CustList from './app/features/CustList';
 import AboutUs from './app/features/pages/AboutUs';
 import Projects from './app/features/pages/Projects';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
+import Login from './app/features/Login';
+import Register from './app/features/Register';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -38,6 +40,14 @@ const router = createBrowserRouter([
                 path:'/about',
                 element:<AboutUs></AboutUs>
             },
+            {
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            }
             
         ]
     },
@@ -45,7 +55,7 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <Provider store={store}>
-                <RouterProvider router={router}></RouterProvider>
+        <RouterProvider router={router}></RouterProvider>
     </Provider>
 );
 
