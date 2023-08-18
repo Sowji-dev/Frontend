@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {  useAddfeedbackMutation, useLazyGetCustDetailsQuery } from '../services/custList';
+import {  useAddfeedbackMutation, useLazyGetCustDetailsQuery } from '../../services/custList';
 function AddFeedback(props) {
     var [addfeedbackfn]=useAddfeedbackMutation()
    

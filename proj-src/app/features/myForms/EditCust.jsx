@@ -1,7 +1,7 @@
 import React, { useState , useEffect} from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useLazyGetCustDetailsQuery, useUpdateCustMutation } from '../services/custList'
+import { useLazyGetCustDetailsQuery, useUpdateCustMutation } from '../../services/custList'
 import AddFeedback from './AddFeedback'
 function EditCust(props) {
   var [updatefn]=useUpdateCustMutation()

@@ -8,104 +8,32 @@
   "details": [
     {
       "fullname": "Sowjiiii",
-      "phone": "09786877",
+      "phone": 906749648,
       "place": "hyd",
       "feedback": [
         "ads4"
       ],
       "email": "sowjanya.kadupu@gmail.com",
+      "role": "5",
+      "password": "hello",
+      "wishlist": [
+        2,
+        4
+      ],
       "id": 1
     },
     {
       "fullname": "Nayaaaa",
-      "phone": "906749648",
+      "phone": 9786877,
       "place": "hyd",
       "feedback": [
         "fxc sdfbv "
       ],
       "email": "naya@gmail.com",
+      "role": "3",
+      "password": "hello",
+      "wishlist": [],
       "id": 2
-    },
-    {
-      "fullname": "Suresh",
-      "phone": "976456438",
-      "place": "kkd",
-      "feedback": [
-        "ewrdf eadcx"
-      ],
-      "email": "suresh@gmail.com",
-      "id": 3
-    },
-    {
-      "fullname": "Mahesh",
-      "phone": "82768918",
-      "place": "vizag",
-      "feedback": [
-        "kjewlds "
-      ],
-      "email": "mahi@gmail.co",
-      "id": 4
-    },
-    {
-      "fullname": "Ruku",
-      "phone": "968921679",
-      "place": "tpty",
-      "feedback": [
-        "wiarjs rwsdf",
-        "helloo"
-      ],
-      "email": "ruku@gmail.com",
-      "id": 7
-    },
-    {
-      "fullname": "ramya",
-      "phone": "87998721",
-      "place": "delhiii",
-      "feedback": [
-        "dsv esf"
-      ],
-      "email": "ram@gmail.co",
-      "id": 8
-    },
-    {
-      "fullname": "sadw",
-      "phone": "09786877",
-      "place": "wrtg",
-      "feedback": [
-        "wdsfdfvs wfsv"
-      ],
-      "email": "Kedargmnv@gmail.com",
-      "id": 11
-    },
-    {
-      "fullname": "Sowji",
-      "phone": "09786877",
-      "place": "wrtg",
-      "feedback": [
-        "wedef"
-      ],
-      "email": "Kedargmnv@gmail.com",
-      "id": 12
-    },
-    {
-      "fullname": "sadwed",
-      "phone": "09786877",
-      "place": "wrtg",
-      "feedback": [
-        "hi"
-      ],
-      "email": "sowjanya.kadupu@gmail.com",
-      "id": 13
-    },
-    {
-      "fullname": "srii",
-      "phone": "08791233456",
-      "place": "chn",
-      "feedback": [
-        "lkwsfn, fw,ds"
-      ],
-      "email": "ewfs@gmail.co",
-      "id": 15
     }
   ]
 }

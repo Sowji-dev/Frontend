@@ -1,14 +1,19 @@
 import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { useAddCustDetailsMutation } from '../services/addCust';
+import { useAddCustDetailsMutation } from '../../services/addCust';
 function AddCust() {
   var [addfn]=useAddCustDetailsMutation()
   return (
-    <div className='box w-50 mx-auto p-3'>
+    <div className=' d-flex login '>
+         <div className='subpage  '>
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhKzsAB3WVEcvLF76v5rEv684pALLoh5dAw&usqp=CAU"   alt="builidng"></img>
+          
+          </div> 
+          <div className='box'>
       <h4>Add New Customer</h4>
       <Formik
-       initialValues={{ fullname: '', phone: '', place:'',feedback:'',email:'' }}
+       initialValues={{ fullname: '', phone: '', place:'',feedback:'',email:'',role:'' }}
        validationSchema={ Yup.object({
         fullname: Yup.string()
           .min(4, 'min 4 characters ')
@@ -49,7 +54,7 @@ function AddCust() {
           </div>
           <div className='fields'>
               <label>Phone: </label>
-              <Field  name="phone"   placeholder='Enter phone'/> <br/>
+              <Field  name="phone"  type="number" placeholder='Enter phone'/> <br/>
               <div className='errormsg'> <ErrorMessage name="phone" /> </div>
           </div>
           <div className='fields'>
@@ -62,6 +67,15 @@ function AddCust() {
               <Field name="place"   placeholder='Enter place'/> <br/>
               <div className='errormsg'><ErrorMessage name="place" /> </div>
            </div>
+           <div className='fields'>
+              <label>Role: </label>
+              <Field as="select" name="role"  placeholder='Enter feedback'>
+                  <option value="3">User</option>
+                  <option value="5">Admin</option>
+                  {/* <option value="blue">Blue</option> */}
+              </Field>
+              <div className='errormsg'><ErrorMessage  name="role" /></div>
+           </div> 
           <div className='fields'>
               <label>Feedback: </label>
               <Field  name="feedback" as="textarea"   placeholder='Enter feedback' />  <br/>
@@ -73,6 +87,7 @@ function AddCust() {
            </button>
          </Form>
      </Formik>
+    </div>
     </div>
   )
 }
