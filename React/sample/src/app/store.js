@@ -1,28 +1,27 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { setupListeners } from '@reduxjs/toolkit/query'
-import likeSlice from './features/likes/likeSlice'
-import fruitCartSlice from './features/fruitCart/fruitCartSlice'
-import ratingSlice from './features/rating/ratingSlice'
-import darkmodeSlice from './features/darkmode/darkmodeSlice'
-import { productsApi } from '../services/productsApi'
-import { countriesApi } from '../services/countreiesApi'
-import { studentsApi } from '../services/studentsApi'
-
+import { addCust } from './services/addCust'
+import { custList } from './services/custList'
+import { loginCust } from './services/loginCust'
+import loginSlice from './slice/loginSlice'
+import { addWishList } from './services/addWishList'
+import { addProperty } from './services/addProperty'
 export const store = configureStore({
   reducer: {
-    likeSlice:likeSlice,
-    fruitCartSlice:fruitCartSlice,
-    ratingSlice:ratingSlice,
-    darkmodeSlice :darkmodeSlice,
-    [productsApi.reducerPath]: productsApi.reducer,
-    [countriesApi.reducerPath]: countriesApi.reducer,
-    [studentsApi.reducerPath]: studentsApi.reducer
+    loginSlice:loginSlice,
+    [addCust.reducerPath]: addCust.reducer,
+    [custList.reducerPath]: custList.reducer,
+    [loginCust.reducerPath]: loginCust.reducer,
+    [addWishList.reducerPath]: addWishList.reducer,
+    [addProperty.reducerPath]: addProperty.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-  
-    getDefaultMiddleware().concat([productsApi.middleware,countriesApi.middleware,
-      studentsApi.middleware]),
-    // getDefaultMiddleware().concat(countriesApi.middleware)
-  
+    getDefaultMiddleware().concat([
+      addCust.middleware,
+      custList.middleware,
+      loginCust.middleware,
+      addWishList.middleware,
+      addProperty.middleware
+    ]),
 })
 setupListeners(store.dispatch)

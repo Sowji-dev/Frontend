@@ -3,64 +3,75 @@ import ReactDOM from 'react-dom/client';
  import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+    createBrowserRouter,
+    RouterProvider,} from "react-router-dom";
+import CustList from './app/features/CustList';
+ import AboutUs from './app/pages/AboutUs';
+import Projects from './app/pages/Projects';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
-import { Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
-import Products from './app/features/products/Products';
-import FruitCart from './app/features/fruitCart/FruitCart';
-import LikeSlice from './app/features/likes/likeSlice';
-import Likes from './app/features/likes/Likes';
-import Rating from './app/features/rating/Rating';
-import Countries from './app/features/countries/Countries';
-import GetStudents from './app/features/students/GetStudents';
-
-var router=createBrowserRouter([
+import Home from './app/pages/Home';
+import House from './app/features/House';
+import Wishlist from './app/features/Wishlist';
+import Login from './app/features/myForms/Login';
+import Register from './app/features/myForms/Register';
+import AddCust from './app/features/myForms/AddCust';
+import AddProperty from './app/features/myForms/AddProperty';
+const router = createBrowserRouter([
     {
-        path:'/',
-        element:<App></App>,
-        children:[
+        path: "/",
+        element: <App></App>,
+        children: [
             {
-                path:'/products',
-                element: <Products></Products>,
-                
+                path:'/',
+                element:<Home></Home>
             },
             {
-                path:'/rating',
-                element: <Rating></Rating>
+                path:'/addcust',
+                element:<AddCust></AddCust>
             },
             {
-                path:'/likesdislikes',
-                element: <Likes></Likes>
+                path:'/custlist',
+                element:<CustList></CustList>
             },
             {
-                path:'/fruitcart',
-                element: <FruitCart></FruitCart>
+                path:'/projects',
+                element:<Projects></Projects>
             },
             {
-                path:'/countries',
-                element: <Countries></Countries>
+                path:'/about',
+                element:<AboutUs></AboutUs>
             },
             {
-                path:'/students',
-                element:<GetStudents></GetStudents>
+                path:'/login',
+                element:<Login></Login>
+            },
+            {
+                path:'/register',
+                element:<Register></Register>
+            },
+            {
+                path:'/houses',
+                element:<House></House>
+            },
+            {
+                path:'/wishlist',
+                element:<Wishlist></Wishlist>
+            },
+            {
+                path:'/property',
+                element:<AddProperty></AddProperty>
             }
+            
         ]
-    }
-])
+    },
+]);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-    
-        <Provider store={store}>
-                <RouterProvider router={router}></RouterProvider>
-        </Provider>
-    
-    
-   
-  
+    <Provider store={store}>
+        <RouterProvider router={router}></RouterProvider>
+    </Provider>
 );
 
 reportWebVitals();
-
-//  {/* <Provider store={store}>
-//           <App />
-//     </Provider> */}

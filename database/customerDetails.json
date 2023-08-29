@@ -1,0 +1,137 @@
+{
+  "adminlogin": [
+    {
+      "phone": "1234",
+      "password": "hello"
+    }
+  ],
+  "details": [
+    {
+      "fullname": "Sowjiiii",
+      "phone": 906749648,
+      "place": "hyd",
+      "feedback": [
+        "ads4"
+      ],
+      "email": "sowjanya.kadupu@gmail.com",
+      "role": "5",
+      "password": "hello",
+      "wishlist": [
+        2,
+        4
+      ],
+      "id": 1
+    },
+    {
+      "fullname": "Nayaaaa",
+      "phone": 9786877,
+      "place": "hyd",
+      "feedback": [
+        "fxc sdfbv "
+      ],
+      "email": "naya@gmail.com",
+      "role": "3",
+      "password": "hello",
+      "wishlist": [],
+      "id": 2
+    },
+    {
+      "fullname": "riya",
+      "phone": 942527245,
+      "place": "hyd",
+      "feedback": [
+        "fxc sdfbv "
+      ],
+      "email": "naya@gmail.com",
+      "role": "3",
+      "password": "hello",
+      "wishlist": [
+        4,
+        2
+      ],
+      "id": 3
+    }
+  ],
+  "property": [
+    {
+      "name": "Lakeshore Villas",
+      "catg": "2bhk",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkRq4l0ltn1xxqltwHyyJqPxSAM9LcWI4Dmw&usqp=CAU",
+      "price": "500000",
+      "sqft": "1753",
+      "location": "Madhapur ",
+      "floor": "2",
+      "id": 1
+    },
+    {
+      "name": "Uday Skyvert",
+      "catg": "duplex",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTi9c71PXw_BI3vdV5sEawhzQGZsXqGttrwzg&usqp=CAU",
+      "price": "800000",
+      "sqft": "2313",
+      "location": "Nizampet",
+      "floor": "",
+      "id": 2
+    },
+    {
+      "name": "The Elite Enclave",
+      "catg": "3bhk",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg8e-3zEASqZkSVaR9S2h8HcJtqjeM84TKBw&usqp=CAU",
+      "price": "700000",
+      "sqft": "1631",
+      "location": "Gachibowli",
+      "floor": "5",
+      "id": 3
+    },
+    {
+      "name": "Parkview Ridge",
+      "catg": "villa",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQy_mfJfMpWZ4uOTfYWhQPfcmxBI8-7VmLbA&usqp=CAU",
+      "price": "800000",
+      "sqft": "1751",
+      "location": "bachpally",
+      "floor": "",
+      "id": 4
+    },
+    {
+      "name": " Golden Gatehouse",
+      "catg": "triplex",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ73ktw-7ijBQfGJdtYEdBhUjB-C27TNZDrJw&usqp=CAU",
+      "price": "860000",
+      "sqft": "1635",
+      "location": "Jublie hills",
+      "floor": "4",
+      "id": 5
+    },
+    {
+      "name": "The Prestige Palace",
+      "catg": "4bhk",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEXGw6TIMBUlW4dEvanvpiw03ui3QeCxlX7A&usqp=CAU",
+      "price": "740000",
+      "sqft": "1843",
+      "location": "KPHB Phase-2",
+      "floor": "7",
+      "id": 6
+    },
+    {
+      "name": "Sunflower Gardens",
+      "catg": "villa",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtJ8GSaQUVHLOYhSidphqS9vgAs5wwlla6XA&usqp=CAU",
+      "price": "930000",
+      "sqft": "1634",
+      "location": "Whitefield",
+      "floor": "",
+      "id": 7
+    },
+    {
+      "name": "Sunset Haven",
+      "catg": "duplex",
+      "pic": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfmwsJEFVw6YX69up7xQmPYzgHBsByDMkjaA&usqp=CAU",
+      "price": "790000",
+      "sqft": "1672",
+      "location": "Kondapur",
+      "floor": "",
+      "id": 8
+    }
+  ]
+}
