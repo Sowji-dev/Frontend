@@ -20,7 +20,7 @@ function Login() {
           <div className='box'>
       <h4>Add New Customer</h4>
       <Formik
-       initialValues={{ phone: '', password: ''}}
+       initialValues={{ phone: '906749648', password: 'hello'}}
        validationSchema={ Yup.object({
         phone: Yup.string()
           .required('Required'),
@@ -43,11 +43,11 @@ function Login() {
        }}
      >
         <Form >
-          admin 906749648
+          admin 906749648<br></br>
           user 942527245
           <div className='fields'>
               <label>Phone: </label>
-              <Field  name="phone"   placeholder='Enter phone' /> <br/>
+              <Field  name="phone"  placeholder='Enter phone' /> <br/>
               <div className='errormsg'> <ErrorMessage name="phone" /> </div>
           </div>
           <div className='fields'>

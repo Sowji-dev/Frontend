@@ -21,9 +21,7 @@ function AddFeedback(props) {
             console.log(res)
           }
         )
-        console.log(x)
-        // addfeedbackfn(values)
-        
+        x.resetForm()
        }}
      >
         <Form className='feedback'>

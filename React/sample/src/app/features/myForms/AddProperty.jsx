@@ -4,6 +4,7 @@ import * as Yup from 'yup';
 import { useAddPropertyMutation } from '../../services/addProperty';
 function AddProperty() {
   var [addpropfn]=useAddPropertyMutation()
+  var housetype=["2BHK","3BHK","Villa","Duplex","Triplex","1BHK"]
   return (
     <div className=' d-flex login '>
          <div className='subpage  '>
@@ -68,15 +69,17 @@ function AddProperty() {
               <label>Category: </label>
               <Field as="select" name="catg" >
                  <option value="" disabled>Select Category</option>
-                  <option value="villa">Villa</option>
-                  <option value="2bhk">2BHK</option>
-                  <option value="3bhk">3BHK</option>
+                 {
+                     housetype.map(e=>{
+                      return  <option value={e}>{e}</option>
+                    })
+                }
               </Field>
               <div className='errormsg'><ErrorMessage  name="catg" /></div>
            </div> 
           <div className='fields'>
-              <label>Squarefeet: </label>
-              <Field  name="sqft"    placeholder='Enter Squareft' />  <br/>
+              <label>Area: </label>
+              <Field  name="sqft"    placeholder='Enter in Squareft' />  <br/>
               <div className='errormsg'><ErrorMessage  name="sqft" /></div>
            </div> 
            <div className='fields'>

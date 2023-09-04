@@ -14,7 +14,7 @@ function Register() {
        initialValues={{ fullname: '', phone: '', place:'',email:'', pref:'', }}
        validationSchema={ Yup.object({
         fullname: Yup.string()
-          .min(4, 'min 4 characters ')
+          .min(2, 'min 2 characters ')
           .max(8, 'max 8 chars')
           .required('Required'),
         phone: Yup.string()

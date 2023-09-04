@@ -39,7 +39,7 @@ function showCust(details){
     // setcustData([...searchAr])
  }
   return (
-    <div className='d-flex box clist'>
+    <div className='d-flex  clist'>
       <div className='w-50'>
         { isLoading && <h3>Loading..</h3> }
           {

@@ -27,9 +27,9 @@ function ShowDetails(props) {
                 !addfeedback &&
                 <button onClick={()=>{setAddFeedback(true)}}>Add Feedback</button>
               }
-              {/* {
+              {
                 addfeedback && !editForm && <AddFeedback details={details}></AddFeedback>
-              } */}
+              }
           </div>
        }
        <div>

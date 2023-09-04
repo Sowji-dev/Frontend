@@ -4,7 +4,7 @@ export const addWishList = createApi({
   reducerPath: 'addWishList',
   baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:4000/details' }),
   endpoints: (builder) => ({
-      addToWishlist :builder.mutation({
+      updateWishlist :builder.mutation({
         query(data) {
           console.log(data)
        return {
@@ -17,4 +17,4 @@ export const addWishList = createApi({
   }),
 })
 
-export const { useAddToWishlistMutation } = addWishList
+export const { useUpdateWishlistMutation } = addWishList
