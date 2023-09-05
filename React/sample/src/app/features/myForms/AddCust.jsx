@@ -5,11 +5,14 @@ import { useAddCustDetailsMutation } from '../../services/addCust';
 function AddCust() {
   var [addfn]=useAddCustDetailsMutation()
   return (
-    <div className=' d-flex login '>
-         <div className='subpage  '>
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhKzsAB3WVEcvLF76v5rEv684pALLoh5dAw&usqp=CAU"   alt="builidng"></img>
-          
-          </div> 
+    <div className=' d-flex'>
+    <div className='home'>
+      <div className='hometxt'>
+        <h3> GET YOUR DREAM HOME CONSTRUCTED BY THE EXPERTS</h3>
+        <h2>A RESIDENTIAL CONSTRUCTION COMPANY</h2>
+      </div>
+      <img src='https://thatsisterimages.s3.amazonaws.com/wp-content/uploads/2020/11/17140352/Featured-Image-7.jpg'/>
+      </div>
           <div className='box'>
       <h4>Add New Customer</h4>
       <Formik

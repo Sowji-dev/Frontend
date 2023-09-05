@@ -4,7 +4,7 @@ import { updLocpref } from '../slice/loginSlice';
 function CheckByLoc() {
     var loc=["Kondapur","Whitefield","Jublie hills","Nizampet","Gachibowli","Madhapur"]
     var checkedloc=useSelector(state=>state.loginSlice.checkloc)
-    console.log(checkedloc)
+    // console.log(checkedloc)
     const dispatch=useDispatch()
     function updloc(){
         var newhtype=[...document.chckboxbyloc.loc]
@@ -13,7 +13,7 @@ function CheckByLoc() {
             if(e.checked)
             checkedli.push(e.defaultValue)
         })
-        console.log(checkedli)
+        // console.log(checkedli)
         dispatch(updLocpref(checkedli))
     }
   return (

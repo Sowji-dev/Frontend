@@ -23,12 +23,12 @@ export const loginSlice= createSlice({
             state.userdet={...action.payload}
         },
         updCheckList:(state,action)=>{
-            console.log(action.payload)
+            // console.log(action.payload)
             state.checkli=[...action.payload]
         },
         updLocpref:(state,action)=>{
-            console.log(action.payload)
-            state.checkli=[...action.payload]
+            // console.log(action.payload)
+            state.checkloc=[...action.payload]
         },
     }
 })

@@ -4,7 +4,7 @@ import { updCheckList } from '../slice/loginSlice';
 function CheckByCatg() {
     var housetype=["2BHK","3BHK","Villa","Duplex","Triplex","1BHK"]
     var checkedprop=useSelector(state=>state.loginSlice.checkli)
-    console.log(checkedprop)
+    // console.log(checkedprop)
     const dispatch=useDispatch()
     function updchkli(){
         var newhtype=[...document.chckboxbycatg.housetype]

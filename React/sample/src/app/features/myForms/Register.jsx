@@ -3,12 +3,15 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 function Register() {
   return (
-    <div className=' d-flex login '>
-         <div className='subpage  '>
-         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVhKzsAB3WVEcvLF76v5rEv684pALLoh5dAw&usqp=CAU"   alt="builidng"></img>
-          
-          </div> 
-          <div className='box'>
+    <div className=' d-flex'>
+      <div className='home'>
+        <div className='hometxt'>
+          <h3> GET YOUR DREAM HOME CONSTRUCTED BY THE EXPERTS</h3>
+          <h2>A RESIDENTIAL CONSTRUCTION COMPANY</h2>
+        </div>
+        <img src='https://thatsisterimages.s3.amazonaws.com/wp-content/uploads/2020/11/17140352/Featured-Image-7.jpg'/>
+        </div>
+        <div className='box scd'>
       <h4>Add New Customer</h4>
       <Formik
        initialValues={{ fullname: '', phone: '', place:'',email:'', pref:'', }}
@@ -71,12 +74,17 @@ function Register() {
            </button>
          </Form>
      </Formik>
-    </div>
-    </div>
+    
+       
+     </div>
+      
+     </div> 
+
+
+
+   
   
   )
 }
 
 export default Register
-// / initialValues:{ fullname: '', phone: '', place:'',email:'', pref:'',area:'',budeget:'' },
-    

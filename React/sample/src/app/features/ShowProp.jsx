@@ -8,10 +8,38 @@ function ShowProp() {
     var {isLoading, isError, data}=useGetPropertiesQuery()
     var userdet=useSelector(state=>state.loginSlice.userdet)
     const dispatch=useDispatch()
-    var checkedcatg=useSelector(state=>state.loginSlice.checkli)
-    var checkedloc=useSelector(state=>state.loginSlice.checkloc)
-    console.log(checkedloc)
-    var len=checkedcatg.length
+    var storedata=useSelector(state=>state.loginSlice)
+    var checkedcatg=[...storedata.checkli]
+    var checkedloc=[...storedata.checkloc]
+     console.log('catg:', checkedcatg,checkedcatg.length)
+    console.log('locs:', checkedloc,checkedloc.length)
+    var  showflats
+    // console.log(data)
+    if(data){
+       showflats= data.filter(e=>{  
+        console.log('dataa',e, checkedcatg.length,checkedloc.length)
+           if(checkedcatg.length==0  && checkedloc.length==0){
+            console.log('all', checkedcatg.length,checkedloc.length)
+                return true}
+            else if(checkedcatg.length=!0 && checkedloc.length==0 && checkedcatg.indexOf(e.catg)!=-1){
+               console.log('catg',e, e.catg)
+                return true
+            }
+            else if(checkedloc.length=!0 && checkedcatg.length==0 && checkedloc.indexOf(e.location)!=-1){
+               console.log('e.loc', e, e.location)
+                return true
+            }
+            else if(checkedloc.length=!0 && checkedcatg.length!=0 && 
+                checkedcatg.indexOf(e.catg)!=-1  && checkedloc.indexOf(e.location)!=-1){
+                   console.log('only loc & catg', e.catg, e.location)
+                return true
+            }
+            else
+                return false
+        })
+    }
+    // console.log(showflats)
+
     function addWishlist(houseid){
         var x={...userdet,wishlist:[...userdet.wishlist,houseid]}
         updateWishlist({...userdet,wishlist:[...userdet.wishlist,houseid]}).then(res=>{
@@ -35,10 +63,8 @@ function ShowProp() {
         
        {
             isLoading ? 'Loading' :
-           data.map((e)=>{  
-            if(checkedcatg.length==0  || checkedcatg.indexOf(e.catg)!=-1){
+            showflats.map((e)=>{  
                 return <div className='col-sm-4 flatimg'>  
-                {/* {console.log(checkedcatg.length,e,checkedcatg.indexOf(e.catg))}     */}
                 <img src={e.pic} alt='house' />
                 <div> 
                     <h4>{e.name}
@@ -59,11 +85,6 @@ function ShowProp() {
                 </div>
              </div>
             }
-            else{
-                return ''
-            }
-             
-        } 
      )}
    </div>
   )

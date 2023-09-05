@@ -18,6 +18,9 @@ import Login from './app/features/myForms/Login';
 import Register from './app/features/myForms/Register';
 import AddCust from './app/features/myForms/AddCust';
 import AddProperty from './app/features/myForms/AddProperty';
+import ThreeD from './app/pages/ThreeD';
+import Site from './app/pages/Site';
+import Working from './app/pages/Working';
 const router = createBrowserRouter([
     {
         path: "/",
@@ -37,7 +40,25 @@ const router = createBrowserRouter([
             },
             {
                 path:'/projects',
-                element:<Projects></Projects>
+                element:<Projects></Projects>,
+                children:[
+                    {
+                        path:'/projects/',
+                        element:<ThreeD></ThreeD>
+                    },
+                    {
+                        path:'/projects/des3d',
+                        element:<ThreeD></ThreeD>
+                    },
+                    {
+                        path:'/projects/site',
+                        element:<Site></Site>
+                    },
+                    {
+                        path:'/projects/working',
+                        element:<Working></Working>
+                    }
+                ]
             },
             {
                 path:'/about',
@@ -63,6 +84,7 @@ const router = createBrowserRouter([
                 path:'/property',
                 element:<AddProperty></AddProperty>
             }
+
             
         ]
     },
