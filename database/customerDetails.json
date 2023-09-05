@@ -61,6 +61,8 @@
       "feedback": "wefsdv sdfvxc ",
       "email": "ram@gmail.com",
       "role": "",
+      "password": "hello",
+      "wishlist": [],
       "id": 4
     },
     {
@@ -71,6 +73,14 @@
       "email": "anu@gmail.com",
       "role": "",
       "id": 5
+    },
+    {
+      "fullname": "chitra",
+      "phone": 918225232,
+      "place": "pune",
+      "email": "chitra@gmail.com",
+      "pref": "2bhk",
+      "id": 6
     }
   ],
   "property": [

@@ -5,6 +5,10 @@ import { useLazyLoginCustomerQuery } from '../../services/loginCust';
 import { useDispatch} from 'react-redux'
 import { loginsucc } from '../../slice/loginSlice';
 import { useNavigate } from "react-router-dom";
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import '@fontsource/roboto/400.css';
 function Login() {
    var [loginfn] = useLazyLoginCustomerQuery()
    const dispatch=useDispatch()
@@ -44,27 +48,29 @@ function Login() {
         })
        }}
      >
-        <Form >
+         {/* <Box component="form" sx={{ '& > :not(style)': { m: 1, width: '25ch' },}}
+      
+      > */}
+      
+      <Form as={Box} sx={{ '& > :not(style)': { m: 1, width: '25ch' },}}>
           admin 906749648<br></br>
           user 942527245
           <div className='fields'>
-              <label>Phone: </label>
-              <Field  name="phone"  placeholder='Enter phone' /> <br/>
+              <Field  label='phone' as={TextField} variant='outlined' name="phone"   /> <br/>
               <div className='errormsg'> <ErrorMessage name="phone" /> </div>
           </div>
-          <div className='fields'>
-              <label>Password: </label>
-              <Field type="password" name="password"   placeholder='Enter password' /> <br/>
+          <div className='fields'>  
+              <Field type="password" name="password"  as={TextField} variant='outlined' label='Enter password' /> <br/>
               <div className='errormsg'><ErrorMessage name="password" /> </div>
            </div> 
            {
             !status && <div style={{color:'red'}}>Incorrect phone number or password</div>
            }     
            <br/>   
-           <button type="submit" >
-             Submit
+           <button type="submit"  as={Button} variant='outlined'>
+             Login
            </button>
-         </Form>
+           </Form>
      </Formik>
      </div></div>
   )
