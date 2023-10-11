@@ -1,0 +1,7 @@
+aria roles
+https://www.w3.org/TR/html-aria/#docconformance
+
+use testing playground (A google extension that helps to write queries)
+
+User Events:
+npm update @testing-library/user-event
