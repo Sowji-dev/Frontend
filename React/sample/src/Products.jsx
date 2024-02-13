@@ -11,7 +11,7 @@ function Products() {
         <br/>
        {
       data.map(e=>{
-        return <span>{e.price}---</span>
+        return <span>{e.price}-</span>
       })
     }
     <br/><br/>

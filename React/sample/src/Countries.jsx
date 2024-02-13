@@ -8,7 +8,7 @@ function Countries() {
   <div>
     {
       data.map(e=>{
-        return <span>{e.name.common}---</span>
+        return <span>{e.name.common}-</span>
       })
     }
   </div>
